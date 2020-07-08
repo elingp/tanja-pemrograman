@@ -17,6 +17,8 @@ class CreatePertanyaanTable extends Migration
             $table->bigIncrements('id', true)->unsigned();
             $table->string('judul', 255);
             $table->text('isi')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('uuid')->nullable();
             $table->timestamp('tgl_create')->useCurrent();
             $table->timestamp('tgl_update')->nullable();
             $table->unsignedBigInteger('penanya_id');
