@@ -11,10 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('pertanyaan');
+// });
+Route::get('/', 'PertanyaanController@index')->name('home');
+
+Route::get('/pertanyaan/add', 'PertanyaanController@add');
+Route::post('/pertanyaan/add', 'PertanyaanController@save')->name('pertanyaan.ask');
+// Route::post('/pertanyaan/answer', 'PertanyaanController@answer')->name('pertanyaan.answer');
+// Route::post('/pertanyaan/comment', 'PertanyaanController@comment')->name('pertanyaan.comment');
+// Route::get('/pertanyaan/{id}/{slug}', 'PertanyaanController@showQuestionDetail');
+// Route::get('/pertanyaan/list', 'PertanyaanController@showQuestionList');
+Route::get('/pertanyaan', 'PertanyaanController@index');
+// here last update by boy
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PertanyaanController@index')->name('home');
+
+
