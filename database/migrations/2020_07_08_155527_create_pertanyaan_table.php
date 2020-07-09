@@ -14,15 +14,13 @@ class CreatePertanyaanTable extends Migration
     public function up()
     {
         Schema::create('pertanyaan', function (Blueprint $table) {
-            $table->bigIncrements('id', true)->unsigned();
-            $table->string('judul', 255);
-            $table->text('isi')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('uuid')->nullable();
-            $table->timestamp('tgl_create')->useCurrent();
-            $table->timestamp('tgl_update')->nullable();
+            $table->bigIncrements('id');
+            $table->string('judul');
+            $table->text('isi');
+            $table->string('slug', 100);
+            $table->timestamps();
             $table->unsignedBigInteger('penanya_id');
-            $table->foreign('penanya_id')->references('id')->on('users');
+            $table->foreign('penanya_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
