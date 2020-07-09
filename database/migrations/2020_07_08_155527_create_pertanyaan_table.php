@@ -21,7 +21,7 @@ class CreatePertanyaanTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('penanya_id');
             $table->foreign('penanya_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('tag');
+            $table->string('tag')->nullable();
         });
     }
 

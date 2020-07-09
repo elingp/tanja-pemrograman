@@ -14,10 +14,10 @@ class CreateLikedisjawabanTable extends Migration
     public function up()
     {
         Schema::create('likedisjawaban', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('jawaban_id');
             $table->tinyInteger('value');
-            $table->primary(['user_id', 'jawaban_id']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('jawaban_id')->references('id')->on('jawaban')->onDelete('cascade');
         });
