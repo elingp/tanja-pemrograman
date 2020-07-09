@@ -14,14 +14,14 @@ class CreateKomenjawabanTable extends Migration
     public function up()
     {
         Schema::create('komenjawaban', function (Blueprint $table) {
-            $table->bigIncrements('id', true)->unsigned();
+            $table->bigIncrements('id');
             $table->text('isi');
-            $table->unsignedBigInteger('pengomentar_id')->unsigned()->default(11);
-            $table->string('komentarcol')->nullable()->default(45);
-            $table->timestamp('tgl_create')->useCurrent();
-            $table->unsignedBigInteger('jawaban_id')->unsigned()->default(12);
-            $table->foreign('pengomentar_id')->references('id')->on('users');
-            $table->foreign('jawaban_id')->references('id')->on('jawaban');
+            $table->timestamps();
+            $table->string('komentarcol')->nullable();
+            $table->unsignedBigInteger('pengomentar_id');
+            $table->unsignedBigInteger('jawaban_id');
+            $table->foreign('pengomentar_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('jawaban_id')->references('id')->on('jawaban')->onDelete('cascade');
         });
     }
 
