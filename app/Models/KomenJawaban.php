@@ -12,4 +12,13 @@ class KomenJawaban extends Model
      * @var string
      */
     protected $table = 'komenjawaban';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'isi', 'pengomentar_id', 'jawaban_id'
+    ];
 }

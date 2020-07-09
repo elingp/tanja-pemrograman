@@ -19,4 +19,13 @@ class LikeDisJawaban extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'jawaban_id', 'value'
+    ];
 }

@@ -17,7 +17,7 @@ class CreateJawabanTable extends Migration
             $table->bigIncrements('id');
             $table->text('isi');
             $table->timestamps();
-            $table->tinyInteger('is_selected');
+            $table->boolean('is_selected')->default(0);
             $table->unsignedBigInteger('penjawab_id');
             $table->unsignedBigInteger('pertanyaan_id');
             $table->foreign('penjawab_id')->references('id')->on('users')->onDelete('cascade');

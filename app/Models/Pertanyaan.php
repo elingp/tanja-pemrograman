@@ -18,7 +18,9 @@ class Pertanyaan extends Model
      *
      * @var array
      */
-    protected $fillable = ['judul', 'isi', 'slug', 'tag', 'penanya_id'];
+    protected $fillable = [
+        'judul', 'isi', 'slug', 'tag', 'penanya_id'
+    ];
 
     public function user()
     {

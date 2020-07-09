@@ -12,4 +12,13 @@ class Jawaban extends Model
      * @var string
      */
     protected $table = 'jawaban';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'isi', 'penanya_id', 'pertanyaan_id'
+    ];
 }

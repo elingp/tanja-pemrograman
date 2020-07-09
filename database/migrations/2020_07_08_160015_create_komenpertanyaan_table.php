@@ -17,7 +17,6 @@ class CreateKomenpertanyaanTable extends Migration
             $table->bigIncrements('id');
             $table->text('isi');
             $table->timestamps();
-            $table->string('komentarcol')->nullable();
             $table->unsignedBigInteger('pengomentar_id');
             $table->unsignedBigInteger('pertanyaan_id');
             $table->foreign('pengomentar_id')->references('id')->on('users')->onDelete('cascade');
