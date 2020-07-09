@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="mb-4 border-bottom border-gray pb-2">
                 <h3>Daftar Pertanyaan <span class="float-right">
-                    <a class="btn btn-primary btn-md" href="/pertanyaan/add" role="button"><i class="fa fa-question-circle" aria-hidden="true"></i> Kirim Pertanyaan</a></span></h3>
+                        <a class="btn btn-primary btn-md" href="/pertanyaan/add" role="button"><i class="fa fa-question-circle" aria-hidden="true"></i> Kirim Pertanyaan</a></span></h3>
             </div>
             @foreach ($questions as $question)
 
@@ -23,10 +23,9 @@
                 <div class="question-inner">
                     <div class="clearfix"></div>
                     <p class="question-desc"> {{ $question['isi'] }}.</p>
-
-                    <span class="question-favorite"><i class="far fa-thumbs-up"></i> 5</span>
                     <span class="question-category"><a href="#"><i class="far fa-folder-open"></i> wordpress</a></span>
-                    <span class="question-date"><i class="far fa-calendar-alt"></i> 4 mins ago</span>
+                    <span class="question-favorite"><i class="far fa-thumbs-up"></i> 5</span>
+                    <span class="question-date"><i class="far fa-comment"></i> 4 mins ago</span>
                     <span class="question-comment"><a href="#"><i class="far fa-comments"></i> 5 Answer</a></span>
                     <span class="question-view"><i class="far fa-eye"></i> 70 views</span>
                     <div class="clearfix"></div>

@@ -23,6 +23,7 @@ Route::post('/pertanyaan/add', 'PertanyaanController@save')->name('pertanyaan.as
 // Route::get('/pertanyaan/{id}/{slug}', 'PertanyaanController@showQuestionDetail');
 // Route::get('/pertanyaan/list', 'PertanyaanController@showQuestionList');
 Route::get('/pertanyaan', 'PertanyaanController@index');
+// here last update by boy
 
 Auth::routes();
 

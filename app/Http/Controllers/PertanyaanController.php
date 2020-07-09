@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PertanyaanModel;
 // use App\Model\Jawaban;
+use Auth;
 
 class PertanyaanController extends Controller
 {
