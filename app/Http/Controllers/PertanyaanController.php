@@ -14,9 +14,9 @@ class PertanyaanController extends Controller
     $questions = Pertanyaan::orderBy('created_at', 'desc')->paginate(6);
     $newest_questions = Pertanyaan::orderBy('tgl_create', 'desc')->paginate(20);
     $question_count = Pertanyaan::count();
-        return view('pertanyaan.index', [
-            'questions' => $questions, 'newest_questions' => $newest_questions,
-        ]);
+    return view('pertanyaan.index', [
+        'questions' => $questions, 'newest_questions' => $newest_questions,
+    ]);
     }
     public function add(){
         if (Auth::user()) {
