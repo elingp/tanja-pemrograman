@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('usercol');
+            $table->string('usercol')->nullable();;
             $table->integer('profiles_id')->unsigned()->default(12);
         });
     }
