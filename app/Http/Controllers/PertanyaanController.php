@@ -17,4 +17,11 @@ class PertanyaanController extends Controller
             'questions' => $questions, 'newest_questions' => $newest_questions,
         ]);
     }
+    public function add(){
+        if (Auth::user()) {
+            return view('pertanyaan.add');
+        } else {
+            return redirect("/login");
+        }
+    }
 }

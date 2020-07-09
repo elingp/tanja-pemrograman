@@ -16,12 +16,12 @@
 // });
 Route::get('/', 'PertanyaanController@index')->name('home');
 
-// Route::get('/pertanyaan/ask', 'QuestionController@showAsk');
-// Route::post('/pertanyaan/ask', 'QuestionController@ask')->name('questions.ask');
-// Route::post('/pertanyaan/answer', 'QuestionController@answer')->name('questions.answer');
-// Route::post('/pertanyaan/comment', 'QuestionController@comment')->name('questions.comment');
-// Route::get('/pertanyaan/{id}/{slug}', 'QuestionController@showQuestionDetail');
-// Route::get('/pertanyaan/list', 'QuestionController@showQuestionList');
+Route::get('/pertanyaan/add', 'PertanyaanController@add');
+Route::post('/pertanyaan/add', 'PertanyaanController@save')->name('pertanyaan.ask');
+// Route::post('/pertanyaan/answer', 'PertanyaanController@answer')->name('pertanyaan.answer');
+// Route::post('/pertanyaan/comment', 'PertanyaanController@comment')->name('pertanyaan.comment');
+// Route::get('/pertanyaan/{id}/{slug}', 'PertanyaanController@showQuestionDetail');
+// Route::get('/pertanyaan/list', 'PertanyaanController@showQuestionList');
 Route::get('/pertanyaan', 'PertanyaanController@index');
 
 Auth::routes();

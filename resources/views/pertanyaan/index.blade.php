@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="mb-4 border-bottom border-gray pb-2">
-                <h3>Daftar Pertanyaan <span class="float-right"><a class="btn btn-primary btn-md" href="#" role="button"><i class="fa fa-question-circle" aria-hidden="true"></i> Kirim Pertanyaan</a></span></h3>
+                <h3>Daftar Pertanyaan <span class="float-right">
+                    <a class="btn btn-primary btn-md" href="/pertanyaan/add" role="button"><i class="fa fa-question-circle" aria-hidden="true"></i> Kirim Pertanyaan</a></span></h3>
             </div>
             @foreach ($questions as $question)
 
