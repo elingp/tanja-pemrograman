@@ -14,14 +14,14 @@ class CreateKomenpertanyaanTable extends Migration
     public function up()
     {
         Schema::create('komenpertanyaan', function (Blueprint $table) {
-            $table->bigIncrements('id', true)->unsigned();
+            $table->bigIncrements('id');
             $table->text('isi');
-            $table->unsignedBigInteger('pengomentar_id')->unsigned()->default(11);
-            $table->string('komentarcol')->nullable()->default(45);
-            $table->timestamp('tgl_create')->useCurrent();
-            $table->unsignedBigInteger('pertanyaan_id')->unsigned()->default(12);
-            $table->foreign('pengomentar_id')->references('id')->on('users');
-            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan');
+            $table->timestamps();
+            $table->string('komentarcol')->nullable();
+            $table->unsignedBigInteger('pengomentar_id');
+            $table->unsignedBigInteger('pertanyaan_id');
+            $table->foreign('pengomentar_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan')->onDelete('cascade');
         });
     }
 
