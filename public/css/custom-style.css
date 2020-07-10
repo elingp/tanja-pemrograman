@@ -410,7 +410,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .navigation_mobile_click:before {
 	content: "\f0c9";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	font-size: 20px;
 	position: absolute;
 	right: 0;
@@ -446,7 +446,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .navigation_mobile > ul li ul li:before {
 	content: "\f054";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	font-size: 10px;
 	margin-right: 8px;
 	speak: none;
@@ -657,7 +657,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 .page-content .boxedtitle,.main-content .boxedtitle {
 	margin-bottom: 20px;
 	padding-left: 20px;
-	border-bottom: 0;
+	/* border-bottom: 0; */
 }
 .page-content p {
 	font-size: 13px;
@@ -817,7 +817,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	opacity: 0.7;
 	filter: alpha(opacity=70);
 	content: "\f0fe";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .question-author-name {
 	margin-top: 10px;
@@ -835,6 +835,21 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	font-size: 14px;
 	margin-right: 10px;
 }
+
+.question-author-name {
+	position: absolute;
+	width: 10%;
+	/* height: 100%; */
+	top: 50%;
+	margin-left: -10px;
+	text-align: center;
+	z-index: 1990;
+	display: block;
+	/* line-height: 65px; */
+
+}
+
+
 .question-type-main {
 	font-size: 11px;
 	margin: 0;
@@ -932,13 +947,22 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	margin-bottom: 0;
 }
 .question-vote-up:before,.comment-vote-up:before,.question-vote-down:before,.comment-vote-down:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f0d8";
 	float: left;
 	height: 12px;
+	display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   font-weight: 900;
 }
 .question-vote-down:before,.comment-vote-down:before {
+	font-family: "Font Awesome 5 Free";
 	content: "\f0d7";
+	display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   font-weight: 900;
 }
 .question-vote-up i,.comment-vote-up i,.question-vote-down i,.comment-vote-down i,.question-vote-up i:before,.comment-vote-up i:before,.question-vote-down i:before,.comment-vote-down i:before {
 	float: right;
@@ -1047,7 +1071,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	display: block;
 }
 .share-inside-l-arrow:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f0d7";
 	position: absolute;
 	bottom: -17px;
@@ -1056,7 +1080,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	color: #FFF;
 }
 .share-inside-f-arrow:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f0d7";
 	position: absolute;
 	bottom: -19px;
@@ -1492,7 +1516,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	left: 2px;
 	z-index: 99;
 	display: block;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	text-align: center;
 	line-height: 65px;
 	-moz-border-radius: 50%;
@@ -2014,7 +2038,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	content: "\f054";
 	margin: 0 5px 5px 0;
 	color: #c3c3c3;
-	font: 12px "FontAwesome";
+	font: 12px "Font Awesome 5 Free";
 	-webkit-transition: all 0.2s ease 0s;
 	-moz-transition: all 0.2s ease 0s;
 	-o-transition: all 0.2s ease 0s;
@@ -2072,7 +2096,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	top: 2px;
 	z-index: 99;
 	display: block;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	text-align: center;
 	line-height: 65px;
 	-moz-border-radius: 50%;
@@ -2104,7 +2128,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .search-submit:before {
 	content: "\f002";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	color: #999;
 	font-size: 15px;
 }
@@ -2117,10 +2141,10 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	margin: 0 0 5px 0 !important;
 	padding: 2px 10px;
 	font-size: 12px !important;
-	background-color: #2f3239;
+	background-color: #6067c1;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
-	border-radius: 2px;
+	border-radius: 15px;
 }
 /* Embed Widget */
 .widget_embed p {
@@ -2163,7 +2187,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .widget_twitter ul li:before {
 	content: "\f099" !important;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	margin: 0 5px 5px 0 !important;
 }
 .widget_twitter ul li b a {
@@ -2223,7 +2247,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	left: 0;
 	z-index: 99;
 	display: block;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	text-align: center;
 	line-height: 60.1px;
 }
@@ -2778,7 +2802,7 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:checked::before {
 	-webkit-margin-start: 0;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f00c";
 	font-size: 12px;
 	height: 22px;
@@ -2876,7 +2900,7 @@ input[type="checkbox"]:checked::before {
 	cursor: pointer;
 }
 .taglist .tag a.delete:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f057";
 	margin-left: 5px;
 	cursor: pointer;
@@ -2987,7 +3011,7 @@ select {
 }
 .styled-select::before {
 	content: "\f107";
-	font: normal 14.5px/29px "FontAwesome";
+	font: normal 14.5px/29px "Font Awesome 5 Free";
 	text-align: center;
 	height: 29px;
 	width: 29px;
@@ -3633,7 +3657,7 @@ h2 [class^="icons-"], h2 [class*=" icons-"] {
 }
 .ul_list li:before,.ul_list li i,.ul_list[class^="ul_list-icon-"] li:before,.ul_list li i[class^="icon-"],.ul_list[class*="ul_list-icon-"] li:before,.ul_list li i[class*="ul_list-icon-"],.ul_list[class^="ul_list-social_icon-"] li:before,.ul_list li i[class^="social_icon-"],.ul_list[class*="ul_list-social_icon-"] li:before,.ul_list li i[class*="social_icon-"] {
 	content: "\f105";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	text-transform: none !important;
 	margin-right: 9px;
 	font-size: 14px;
@@ -3745,7 +3769,7 @@ h2 [class^="icons-"], h2 [class*=" icons-"] {
 	background-color: #2f3239;
 }
 .accordion .accordion-title a:before,.accordion .accordion-title.active a:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	float: right;
 	font-size: 10px;
 	position: absolute;
@@ -4512,7 +4536,7 @@ h2 [class^="icons-"], h2 [class*=" icons-"] {
 }
 .light-box-images i:before {
 	content: "\f002";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .lightbox-warp:hover .light-box-images {
 	opacity: 1;
@@ -4520,7 +4544,7 @@ h2 [class^="icons-"], h2 [class*=" icons-"] {
 }
 .light-box-video i:before {
 	content: "\f04b";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .images-warp-grid li {
 	margin-bottom: 20px;
@@ -4865,7 +4889,7 @@ a.carousel-next {
 	font-size: 13px;
 }
 .post-read-more:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f067";
 	margin-right: 5px;
 	font-size: 12px;
@@ -5180,11 +5204,11 @@ html[xmlns] .slides {
 }
 .bx-prev:before {
 	content: "\f104";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .bx-next:before {
 	content: "\f105";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .bx-prev {
 	left: -30px;
@@ -5244,4 +5268,10 @@ html[xmlns] .slides {
 .go-up,.widget_bxslider .bxslider-widget-item .bxslider_img:before,.popular_posts .popular_img a:before,.widget_flickr a:before,.button,.button:hover,.pagination a:hover,.pagination span:hover,.pagination span.current,.tipsy-inner,.widget_highest_points a:before,.social_icon a,.social_icon a:hover,.social_icon_2 a,.about-author .author-image a:hover:before,.question-author-img:hover span:before,.icon_circle,.icon_square,.tabs-style-3 .tab a:hover,.ul_list_square ul li:before,.ul_list_circle ul li:before,.ul_list_square ul li i,i.ul_l_square,.ul_list_circle ul li i,i.ul_l_circle,.table-style-2 thead th,.dropcap.dropcap_circle,.dropcap.dropcap_square,.dropcap.dropcap_soft_r,.carousel-arrow a:hover,.color_white,.icon_circle,.icon_square,.icon_soft_r,.box_icon:hover .icon_circle i,.box_icon:hover .icon_soft_r i,.box_icon:hover .icon_square i,.box_warp_hover:hover,.box_warp_hover:hover .icon_i i,.box_warp_colored,.box_warp_colored a,.large_bg,.navigation_mobile_click:before,.post .boxedtitle i,.single-question-title i,.question-type,.post-type,.breadcrumbs,#header .logo a,.navigation > ul > li:hover > a,#header.header_light .navigation > ul > li:hover > a,.navigation > ul > li.current_page_item > a,#header.header_light .navigation > ul > li.current_page_item > a,.main-content .boxedtitle h1,.main-content .boxedtitle h2,.main-content .boxedtitle h3,.main-content .boxedtitle h4,.main-content .boxedtitle h5,.main-content .boxedtitle h6,.header-top-nav li a,.header-top-nav li i,.header-search input[type="text"],.header-search input:focus,.header-search .search-submit:before,.login-panel h2,.login-panel li a:hover,.login-panel .rememberme label,.flex-caption .text,.overlay-lightbox,.overlay-link,.ask-me,.ask-me h2,.ask-me p,.navigation ul li ul li:hover > a,.navigation > ul > li > a,.navigation ul li ul li.current_page_item > a,.navigation > ul > li > a:hover > .menu-nav-arrow,.navigation > ul > li.current_page_item > a > .menu-nav-arrow,.navigation > ul > li:hover > a .menu-nav-arrow,#footer-bottom,#footer,#footer .widget_contact ul li,#footer-bottom .social_icons ul li a:hover,#footer .related-item h3 a,#footer .widget_twitter ul li a,#footer a,#footer .widget a:hover,#footer .widget_contact ul li,input[type="checkbox"]:checked::before,.widget_stats li i,.widget_social li span,.widget_social li a small,.ask-me .col-md-9 p i,.tab a.current,.question-type-main,.login-panel ul.login-links a,.del-poll-li,.form-style-3 .form-inputs p #add_poll:hover i,.styled-select::before,.fileinputs:hover span i,.fileinputs span,.alert-message i,.single-question-vote-up:hover,.single-question-vote-down:hover,.user-profile-widget .ul_list li i,.post-read-more:hover:before,.widget_menu li.current_page_item a,.accordion .accordion-title a,.tab a,.tab a:hover,.ask-me .box_icon h2 {
   color: #FFF;
       background-color: #ff7361;
+}
+.garisbawah {
+border-bottom: 1px solid #dedede;
+}
+.children .comment-text{
+	padding: 10px !important;
 }

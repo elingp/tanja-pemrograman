@@ -26,7 +26,12 @@ class PertanyaanController extends Controller
     public function index()
     {
         $pertanyaan = Pertanyaan::orderBy('created_at', 'desc')->paginate(10);
-        return view('pertanyaan.index', ['questions' => $pertanyaan]);
+        $count = Pertanyaan::withCount('comments')->get();
+        $like = Pertanyaan::withCount('likedislikes')->get();
+        // dd($count);
+        return view('pertanyaan.index', ['questions' => $pertanyaan,'count', 'like']);
+
+
     }
 
     /**
@@ -72,7 +77,9 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        //
+        $pertanyaan = Pertanyaan::find($id);
+        // dd($pertanyaan);
+        return view('pertanyaan.detail', ['question' => $pertanyaan]);
     }
 
     /**

@@ -39,5 +39,11 @@
 
 
 @push('scripts')
-
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="//cdn.ckeditor.com/4.14.0/basic/ckeditor.js"></script>
+<script>
+    $(document).ready(function() {
+        CKEDITOR.replace('isi');
+    });
+</script>
 @endpush
