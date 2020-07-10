@@ -36,4 +36,60 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the jawaban for the user.
+     */
+    public function jawaban()
+    {
+        return $this->hasMany('App\Models\Jawaban', 'penjawab_id');
+    }
+
+    /**
+     * Get the comments jawaban for the user.
+     */
+    public function comments_jawaban()
+    {
+        return $this->hasMany('App\Models\KomenJawaban', 'pengomentar_id');
+    }
+
+    /**
+     * Get the comments pertanyaan for the user.
+     */
+    public function comments_pertanyaan()
+    {
+        return $this->hasMany('App\Models\KomenPertanyaan', 'pengomentar_id');
+    }
+
+    /**
+     * Get the like and dislikes jawaban for the user.
+     */
+    public function likedislikes_jawaban()
+    {
+        return $this->hasMany('App\Models\LikeDisJawaban');
+    }
+
+    /**
+     * Get the like and dislikes pertanyaan for the user.
+     */
+    public function likedislikes_pertanyaan()
+    {
+        return $this->hasMany('App\Models\LikeDisPertanyaan');
+    }
+
+    /**
+     * Get the pertanyaan for the user.
+     */
+    public function pertanyaan()
+    {
+        return $this->hasMany('App\Models\Pertanyaan', 'penanya_id');
+    }
+
+    /**
+     * Get the profile associated with the user.
+     */
+    public function profile()
+    {
+        return $this->hasOne('App\Models\Profile');
+    }
 }

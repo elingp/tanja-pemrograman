@@ -22,12 +22,29 @@ class Pertanyaan extends Model
         'judul', 'isi', 'slug', 'tag', 'penanya_id'
     ];
 
+    /**
+     * Get the user that owns the pertanyaan.
+     */
     public function user()
     {
-        return $this->hasOne('App\Models\User', 'id', 'penanya_id');
+        return $this->belongsTo('App\Models\User', 'penanya_id');
     }
 
-    // public function tag()
+    /**
+     * Get the comments for the pertanyaan.
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Models\KomenPertanyaan');
+    }
+
+    /**
+     * Get the like and dislikes for the pertanyaan.
+     */
+    public function likedislikes()
+    {
+        return $this->hasMany('App\Models\LikeDisPertanyaan');
+    }
 
 }
 

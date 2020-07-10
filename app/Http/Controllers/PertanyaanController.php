@@ -25,12 +25,8 @@ class PertanyaanController extends Controller
      */
     public function index()
     {
-        $questions = Pertanyaan::orderBy('created_at', 'desc')->paginate(6);
-        $newest_questions = Pertanyaan::orderBy('created_at', 'desc')->paginate(20);
-        $question_count = Pertanyaan::count();
-        return view('pertanyaan.index', [
-            'questions' => $questions, 'newest_questions' => $newest_questions,
-        ]);
+        $pertanyaan = Pertanyaan::orderBy('created_at', 'desc')->paginate(10);
+        return view('pertanyaan.index', ['questions' => $pertanyaan]);
     }
 
     /**
@@ -57,8 +53,8 @@ class PertanyaanController extends Controller
             'isi' => ['required', 'max:255'],
             'tag' => ['nullable', 'max:255']
         ]);
-        $slug = Str::slug(Str::limit($request->judul, 50, ''));
-        $pertanyaan = Pertanyaan::create([
+        $slug = Str::slug(Str::limit($request->judul, 100, ''));
+        Pertanyaan::create([
             'judul' => $request->judul,
             'isi' => $request->isi,
             'slug' => $slug,

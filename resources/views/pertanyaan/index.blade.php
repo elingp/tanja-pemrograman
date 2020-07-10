@@ -9,17 +9,18 @@
                         <a class="btn btn-primary btn-md" href="/pertanyaan/create" role="button"><i class="fa fa-question-circle" aria-hidden="true"></i> Buat Pertanyaan</a></span></h3>
             </div>
             @foreach ($questions as $question)
-
             <article class="question question-type-normal">
                 <h2>
-                    <a href="/pertanyaan/{{ $question->id }}/{{ $question->slug }}">{{ $question['judul'] }}?</a>
+                    <a href="/pertanyaan/{{ $question->id }}/{{ $question->slug }}">{{ $question->judul }}</a>
                 </h2>
-                <a class="question-report" href="#">{{ date('d/m/Y', strtotime($question['created_at'])) }}</a>
-                <!-- <div class="question-type-main"><i class="fa fa-question-circle" aria-hidden="true"></i>{{($question->user)['name']}}</div> -->
+                <a class="question-report" href="#">{{ date('d/m/Y', strtotime($question->created_at)) }}</a>
+                <!-- <div class="question-type-main"><i class="fa fa-question-circle" aria-hidden="true"></i>{{ $question->user->name }}</div> -->
                 <div class="question-author">
-                    <a href="#" original-title="{{ ($question->user)['name'] }}" class="question-author-img tooltip-n"><span></span><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
-                    <br>{{($question->user)['name']}}
+                    <a href="#" original-title="{{ $question->user->name }}" class="question-author-img tooltip-n"><span></span><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
+                    <br>
+                    {{ $question->user->name }}
                 </div>
+
                 <div class="question-inner">
                     <div class="clearfix"></div>
                     <p class="question-desc"> {{ $question['isi'] }}.</p>

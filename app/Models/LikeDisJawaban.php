@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,4 +28,20 @@ class LikeDisJawaban extends Model
     protected $fillable = [
         'user_id', 'jawaban_id', 'value'
     ];
+
+    /**
+     * Get the jawaban that owns the like or dislike.
+     */
+    public function jawaban()
+    {
+        return $this->belongsTo('App\Models\Jawaban');
+    }
+
+    /**
+     * Get the user that owns the like or dislike.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
