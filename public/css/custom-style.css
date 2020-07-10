@@ -410,7 +410,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .navigation_mobile_click:before {
 	content: "\f0c9";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	font-size: 20px;
 	position: absolute;
 	right: 0;
@@ -446,7 +446,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .navigation_mobile > ul li ul li:before {
 	content: "\f054";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	font-size: 10px;
 	margin-right: 8px;
 	speak: none;
@@ -817,7 +817,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	opacity: 0.7;
 	filter: alpha(opacity=70);
 	content: "\f0fe";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .question-author-name {
 	margin-top: 10px;
@@ -835,6 +835,21 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	font-size: 14px;
 	margin-right: 10px;
 }
+
+.question-author-name {
+	position: absolute;
+	width: 10%;
+	/* height: 100%; */
+	top: 50%;
+	margin-left: -10px;
+	text-align: center;
+	z-index: 1990;
+	display: block;
+	/* line-height: 65px; */
+
+}
+
+
 .question-type-main {
 	font-size: 11px;
 	margin: 0;
@@ -1056,7 +1071,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	display: block;
 }
 .share-inside-l-arrow:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f0d7";
 	position: absolute;
 	bottom: -17px;
@@ -1065,7 +1080,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	color: #FFF;
 }
 .share-inside-f-arrow:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f0d7";
 	position: absolute;
 	bottom: -19px;
@@ -1501,7 +1516,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	left: 2px;
 	z-index: 99;
 	display: block;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	text-align: center;
 	line-height: 65px;
 	-moz-border-radius: 50%;
@@ -2023,7 +2038,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	content: "\f054";
 	margin: 0 5px 5px 0;
 	color: #c3c3c3;
-	font: 12px "FontAwesome";
+	font: 12px "Font Awesome 5 Free";
 	-webkit-transition: all 0.2s ease 0s;
 	-moz-transition: all 0.2s ease 0s;
 	-o-transition: all 0.2s ease 0s;
@@ -2081,7 +2096,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	top: 2px;
 	z-index: 99;
 	display: block;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	text-align: center;
 	line-height: 65px;
 	-moz-border-radius: 50%;
@@ -2113,7 +2128,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .search-submit:before {
 	content: "\f002";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	color: #999;
 	font-size: 15px;
 }
@@ -2172,7 +2187,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .widget_twitter ul li:before {
 	content: "\f099" !important;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	margin: 0 5px 5px 0 !important;
 }
 .widget_twitter ul li b a {
@@ -2232,7 +2247,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	left: 0;
 	z-index: 99;
 	display: block;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	text-align: center;
 	line-height: 60.1px;
 }
@@ -2787,7 +2802,7 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:checked::before {
 	-webkit-margin-start: 0;
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f00c";
 	font-size: 12px;
 	height: 22px;
@@ -2885,7 +2900,7 @@ input[type="checkbox"]:checked::before {
 	cursor: pointer;
 }
 .taglist .tag a.delete:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f057";
 	margin-left: 5px;
 	cursor: pointer;
@@ -2996,7 +3011,7 @@ select {
 }
 .styled-select::before {
 	content: "\f107";
-	font: normal 14.5px/29px "FontAwesome";
+	font: normal 14.5px/29px "Font Awesome 5 Free";
 	text-align: center;
 	height: 29px;
 	width: 29px;
@@ -3642,7 +3657,7 @@ h2 [class^="icons-"], h2 [class*=" icons-"] {
 }
 .ul_list li:before,.ul_list li i,.ul_list[class^="ul_list-icon-"] li:before,.ul_list li i[class^="icon-"],.ul_list[class*="ul_list-icon-"] li:before,.ul_list li i[class*="ul_list-icon-"],.ul_list[class^="ul_list-social_icon-"] li:before,.ul_list li i[class^="social_icon-"],.ul_list[class*="ul_list-social_icon-"] li:before,.ul_list li i[class*="social_icon-"] {
 	content: "\f105";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	text-transform: none !important;
 	margin-right: 9px;
 	font-size: 14px;
@@ -3754,7 +3769,7 @@ h2 [class^="icons-"], h2 [class*=" icons-"] {
 	background-color: #2f3239;
 }
 .accordion .accordion-title a:before,.accordion .accordion-title.active a:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	float: right;
 	font-size: 10px;
 	position: absolute;
@@ -4521,7 +4536,7 @@ h2 [class^="icons-"], h2 [class*=" icons-"] {
 }
 .light-box-images i:before {
 	content: "\f002";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .lightbox-warp:hover .light-box-images {
 	opacity: 1;
@@ -4529,7 +4544,7 @@ h2 [class^="icons-"], h2 [class*=" icons-"] {
 }
 .light-box-video i:before {
 	content: "\f04b";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .images-warp-grid li {
 	margin-bottom: 20px;
@@ -4874,7 +4889,7 @@ a.carousel-next {
 	font-size: 13px;
 }
 .post-read-more:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f067";
 	margin-right: 5px;
 	font-size: 12px;
@@ -5189,11 +5204,11 @@ html[xmlns] .slides {
 }
 .bx-prev:before {
 	content: "\f104";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .bx-next:before {
 	content: "\f105";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 }
 .bx-prev {
 	left: -30px;

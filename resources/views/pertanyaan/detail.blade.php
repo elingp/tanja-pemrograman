@@ -1,15 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-9">
             <article class="question question-type-normal">
-
+                <h2>
+                    {{$question->judul }}
+                </h2>
+                <a class="question-report" href="#">{{ $question->user->name }} | {{ date('d/m/Y', strtotime($question->created_at)) }}</a>
 
                 <div class="question-inner">
                     <div class="clearfix"></div>
-                    <p class="question-desc"> asdasd.</p>
+                    <p class="question-desc"> {{ strip_tags($question->isi) }}..</p>
 
                     <span class="question-category"><a href="#"><i class="far fa-folder-open"></i> wordpress</a></span>
                     <span class="question-favorite"><i class="far fa-thumbs-up"></i> 5</span>
@@ -34,12 +38,16 @@
                 <div class="clearfix"></div>
             </div>
 
+
+
+
+
             <div class="about-author clearfix">
                 <div class="author-image">
-                    <a href="#" original-title="admin" class="tooltip-n"><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
+                    <a href="#" original-title="{{ $question->user->name }}" class="tooltip-n"><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
                 </div>
                 <div class="author-bio">
-                    <h4>About the Author</h4>
+                    <h4>About : <a href="" class="">{{ $question->user->name }}</a></h4>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
                 </div>
             </div>
@@ -70,7 +78,7 @@
                                 <div class="text">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequatLorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
                                 </div>
-                                <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
+                                <div class="question-answered question-answered-done"><i class="fas fa-certificate"></i> Best Answer</div>
                             </div>
                         </div>
                         <ul class="children mb-5">
