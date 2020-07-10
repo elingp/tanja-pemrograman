@@ -27,17 +27,16 @@
 
             </article>
             <div class="share-tags page-content">
-                <div class="question-tags"><i class="icon-tags"></i>
+                <div class="question-tags widget_tag_cloud"><i class="icon-tags"></i>
                     <a href="#">wordpress</a>, <a href="#">question</a>, <a href="#">developer</a>
                 </div>
-                <div class="share-inside"><i class="icon-share-alt"></i>Share</>
-                    <div class="clearfix"></div>
-                </div>
+                <div class="share-inside"><i class="fas fa-tags"></i> Tags</div>
+                <div class="clearfix"></div>
             </div>
 
             <div class="about-author clearfix">
                 <div class="author-image">
-                    <a href="#" original-title="admin" class="tooltip-n"><img alt="" src="https://2code.info/demo/html/ask-me/images/demo/admin.jpeg"></a>
+                    <a href="#" original-title="admin" class="tooltip-n"><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
                 </div>
                 <div class="author-bio">
                     <h4>About the Author</h4>
@@ -52,7 +51,7 @@
                 <ol class="commentlist clearfix">
                     <li class="comment">
                         <div class="comment-body comment-body-answered clearfix">
-                            <div class="avatar"><img alt="" src="https://2code.info/demo/html/ask-me/images/demo/admin.jpeg"></div>
+                            <div class="avatar"><img alt="" src="{{ asset('img/avatar_m.png')}}"></div>
                             <div class="comment-text">
                                 <div class="author clearfix">
                                     <div class="comment-author"><a href="#">admin</a></div>
@@ -69,91 +68,36 @@
                                     <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
                                 </div>
                                 <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequatLorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
                                 </div>
                                 <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
                             </div>
                         </div>
-                        <ul class="children">
+                        <ul class="children mb-5">
                             <li class="comment">
-                                <div class="comment-body clearfix">
-                                    <div class="avatar"><img alt="" src="https://2code.info/demo/html/ask-me/images/demo/avatar.png"></div>
-                                    <div class="comment-text">
-                                        <div class="author clearfix">
-                                            <div class="comment-author"><a href="#">vbegy</a></div>
-                                            <div class="comment-vote">
-                                                <ul class="question-vote">
-                                                    <li><a href="#" class="question-vote-up" title="Like"></a></li>
-                                                    <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
-                                                </ul>
-                                            </div>
-                                            <span class="question-vote-result">+1</span>
-                                            <div class="comment-meta">
-                                                <div class="date"><i class="icon-time"></i>January 15 , 2014 at 10:00 pm</div>
-                                            </div>
-                                            <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
-                                        </div>
-                                        <div class="text">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="children">
-                                    <li class="comment">
-                                        <div class="comment-body clearfix">
-                                            <div class="avatar"><img alt="" src="https://2code.info/demo/html/ask-me/images/demo/admin.jpeg"></div>
-                                            <div class="comment-text">
-                                                <div class="author clearfix">
-                                                    <div class="comment-author"><a href="#">admin</a></div>
-                                                    <div class="comment-vote">
-                                                        <ul class="question-vote">
-                                                            <li><a href="#" class="question-vote-up" title="Like"></a></li>
-                                                            <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <span class="question-vote-result">+9</span>
-                                                    <div class="comment-meta">
-                                                        <div class="date"><i class="icon-time"></i>January 15 , 2014 at 10:00 pm</div>
-                                                    </div>
-                                                    <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
-                                                </div>
-                                                <div class="text">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul><!-- End children -->
-                            </li>
-                            <li class="comment">
-                                <div class="comment-body clearfix">
-                                    <div class="avatar"><img alt="" src="https://2code.info/demo/html/ask-me/images/demo/avatar.png"></div>
-                                    <div class="comment-text">
-                                        <div class="author clearfix">
-                                            <div class="comment-author"><a href="#">ahmed</a></div>
-                                            <div class="comment-vote">
-                                                <ul class="question-vote">
-                                                    <li><a href="#" class="question-vote-up" title="Like"></a></li>
-                                                    <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
-                                                </ul>
-                                            </div>
-                                            <span class="question-vote-result">-3</span>
-                                            <div class="comment-meta">
-                                                <div class="date"><i class="icon-time"></i>January 15 , 2014 at 10:00 pm</div>
-                                            </div>
-                                            <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
-                                        </div>
-                                        <div class="text">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
-                                        </div>
+                                <div class="comment-text m-6">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. </p>
+                                    <div class="comment-meta date">
+                                        namauser | <i class="icon-time"></i>January 15 , 2014 at 10:00 pm
                                     </div>
                                 </div>
                             </li>
+                            <li class="comment">
+                                <div class="comment-text m-6">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. </p>
+                                    <div class="comment-meta date">
+                                        namauser | <i class="icon-time"></i>January 15 , 2014 at 10:00 pm
+                                    </div>
+                                </div>
+                            </li>
+
+
+
                         </ul><!-- End children -->
                     </li>
                     <li class="comment">
                         <div class="comment-body clearfix">
-                            <div class="avatar"><img alt="" src="https://2code.info/demo/html/ask-me/images/demo/avatar.png"></div>
+                            <div class="avatar"><img alt="" src="{{ asset('img/avatar_m.png')}}"></div>
                             <div class="comment-text">
                                 <div class="author clearfix">
                                     <div class="comment-author"><a href="#">2code</a></div>
@@ -180,37 +124,42 @@
 
 
             <div id="respond" class="comment-respond page-content clearfix">
+                @auth
                 <div class="boxedtitle page-title">
-                    <h2>Leave a reply</h2>
+                    <h2>Jawaban Anda</h2>
                 </div>
-                <form action="" method="post" id="commentform" class="comment-form">
-                    <div id="respond-inputs" class="clearfix">
-                        <p>
-                            <label class="required" for="comment_name">Name<span>*</span></label>
-                            <input name="author" type="text" value="" id="comment_name" aria-required="true">
-                        </p>
-                        <p>
-                            <label class="required" for="comment_email">E-Mail<span>*</span></label>
-                            <input name="email" type="text" value="" id="comment_email" aria-required="true">
-                        </p>
-                        <p class="last">
-                            <label class="required" for="comment_url">Website<span>*</span></label>
-                            <input name="url" type="text" value="" id="comment_url">
-                        </p>
+                <form action="/pertanyaan" method="POST">
+                    @csrf
+                    <input type="hidden" name="penanya_id" value="{{ Auth::id() }}">
+                    <div class="form-group">
+                        <textarea class="form-control" name="isi" id="isi" rows="4"></textarea>
                     </div>
-                    <div id="respond-textarea">
-                        <p>
-                            <label class="required" for="comment">Comment<span>*</span></label>
-                            <textarea id="comment" name="comment" aria-required="true" cols="58" rows="8"></textarea>
-                        </p>
-                    </div>
-                    <p class="form-submit">
-                        <input name="submit" type="submit" id="submit" value="Post your answer" class="button small color">
-                    </p>
+
+                    <button type="submit" class="btn btn-primary">Kirim Jawaban</button>
                 </form>
+                @endauth
+                @guest
+                <a href="/login">
+                    <div class="alert-message error">
+                        <i class="fas fa-lock"></i>
+
+                        <p><span>Login</span><br>
+                            Anda Harus Login Untuk Menjawab</p>
+                    </div>
+                </a>
+                @endguest
             </div>
 
 
         </div>
     </div>
     @endsection
+    @push('scripts')
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="//cdn.ckeditor.com/4.14.0/basic/ckeditor.js"></script>
+    <script>
+        $(document).ready(function() {
+            CKEDITOR.replace('isi');
+        });
+    </script>
+    @endpush

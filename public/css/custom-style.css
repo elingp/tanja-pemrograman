@@ -657,7 +657,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 .page-content .boxedtitle,.main-content .boxedtitle {
 	margin-bottom: 20px;
 	padding-left: 20px;
-	border-bottom: 0;
+	/* border-bottom: 0; */
 }
 .page-content p {
 	font-size: 13px;
@@ -932,13 +932,22 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	margin-bottom: 0;
 }
 .question-vote-up:before,.comment-vote-up:before,.question-vote-down:before,.comment-vote-down:before {
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	content: "\f0d8";
 	float: left;
 	height: 12px;
+	display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   font-weight: 900;
 }
 .question-vote-down:before,.comment-vote-down:before {
+	font-family: "Font Awesome 5 Free";
 	content: "\f0d7";
+	display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   font-weight: 900;
 }
 .question-vote-up i,.comment-vote-up i,.question-vote-down i,.comment-vote-down i,.question-vote-up i:before,.comment-vote-up i:before,.question-vote-down i:before,.comment-vote-down i:before {
 	float: right;
@@ -5247,4 +5256,7 @@ html[xmlns] .slides {
 }
 .garisbawah {
 border-bottom: 1px solid #dedede;
+}
+.children .comment-text{
+	padding: 10px !important;
 }
