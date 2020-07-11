@@ -14,10 +14,12 @@
                 <div class="question-inner">
                     <div class="clearfix"></div>
                     <div class="question-desc">{!! $question->isi !!}</div>
+
                     @if (!empty($question->comments))
+                    <h5>Komentar :</h5>
                     <ul class="children mb-5">
                         @foreach ($question->comments as $komentanya)
-                        <li class="comment"><small>
+                        <li class="comment pt-3"><small>
                                 <p>{!! $komentanya->isi !!}. </p>
                                 {{$komentanya->user->name}} | <i class="icon-time"></i>{{ $komentanya->created_at->diffForHumans() }}
 
