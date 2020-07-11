@@ -32,7 +32,7 @@
                  <span data-toggle="tooltip" title={{ $question->created_at->diffForHumans() }}" class="badge bg-danger">{{ $question->created_at->diffForHumans() }}</span>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                   </button>
-                 
+
                 </div>
                 <!-- /.card-tools -->
               </div>
@@ -41,9 +41,9 @@
                 <!-- post text -->
                {!! Illuminate\Support\Str::limit(strip_tags($question->isi), 200) !!}
 <hr>
-               
 
-             
+
+
                 <span class="float-left">
                       @if (!empty($question->tag))
                         @foreach (explode(' ',$question->tag) as $item)
@@ -58,9 +58,9 @@
 
 
 
-                 
+
               </div>
-           
+
               <!-- /.card-footer -->
               {{-- <div class="card-footer">
                 <form action="#" method="post" _lpchecked="1">
