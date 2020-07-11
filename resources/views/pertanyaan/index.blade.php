@@ -1,9 +1,10 @@
-@extends('layouts.app')
+@extends('template.index')
 
 @section('content')
-<div class="container">
+<div class="content-wrapper ">
+
     <div class="row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-11">
             <div class="mb-4 border-bottom border-gray pb-2">
                 <h3>Daftar Pertanyaan <span class="float-right">
                         <a class="btn btn-primary btn-md" href="/pertanyaan/create" role="button"><i class="fa fa-question-circle" aria-hidden="true"></i> Buat Pertanyaan</a></span></h3>
@@ -46,4 +47,5 @@
         </div>
     </div>
 </div>
+
 @endsection

@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('template.index')
 
 @section('content')
-<div class="container">
+<div class="content-wrapper ">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-11">
             <div class="mb-4 border-bottom border-gray pb-2">
                 <h3>Kirim Pertanyaan</h3>
             </div>
