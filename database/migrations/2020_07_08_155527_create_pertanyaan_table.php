@@ -19,6 +19,7 @@ class CreatePertanyaanTable extends Migration
             $table->text('isi');
             $table->string('tag')->nullable();
             $table->string('slug', 100);
+            $table->integer('view')->default(0);
             $table->timestamps();
             $table->unsignedBigInteger('penanya_id');
             $table->foreign('penanya_id')->references('id')->on('users')->onDelete('cascade');
