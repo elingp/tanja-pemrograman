@@ -16,14 +16,14 @@
                     <div class="question-desc">{!! $question->isi !!}</div>
                     <div class="widget_tag_cloud">
                         @if (!empty($question->tag))
-                            @foreach (explode(' ',$question->tag) as $item)
-                                <a href="#">{{$item}}</a>
-                            @endforeach
+                        @foreach (explode(' ',$question->tag) as $item)
+                        <a href="#">{{$item}}</a>
+                        @endforeach
                         @endif
                     </div>
                     <div class="clearfix"></div>
                     <span class="question-category"><a href="/p/{{ $question->id }}"><i class="far fa-share"></i> Share</a></span>
-                    <span class="question-view"><i class="far fa-eye"></i> 70 views</span>
+                    <span class="question-view"><i class="far fa-eye"></i> {{ $question->view }} views</span>
                     <span class="single-question-vote-result">{{ $question->likedislikes->sum('value') }}</span>
                     <ul class="single-question-vote">
                         <li><a href="#" class="single-question-vote-down" title="Dislike"><i class="far fa-thumbs-down"></i></a></li>
