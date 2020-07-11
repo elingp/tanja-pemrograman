@@ -32,6 +32,14 @@ class Jawaban extends Model
     }
 
     /**
+     * Get the pertanyaan that owns the jawaban.
+     */
+    public function pertanyaan()
+    {
+        return $this->belongsTo('App\Models\Pertanyaan');
+    }
+
+    /**
      * Get the comments for the jawaban.
      */
     public function comments()
