@@ -11,10 +11,10 @@
 |
 */
 
- Route::get('/master', function () {
-     return view('template.index');
- });
-//Route::get('/', function (){return view('welcome');})
+Route::get('/master', function () {
+    return view('template.index');
+});
+
 Route::get('/', 'PertanyaanController@index');
 Route::get('/pertanyaan', 'PertanyaanController@index');
 Route::get('/pertanyaan/create', 'PertanyaanController@create');
@@ -24,6 +24,7 @@ Route::get('/p/{id}', 'PertanyaanController@show_redirect');
 Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit');
 Route::put('/pertanyaan/{id}', 'PertanyaanController@update');
 Route::delete('/pertanyaan/{id}', 'PertanyaanController@destroy');
+
 Route::post('/jawaban', 'JawabanController@store');
 
 Auth::routes();

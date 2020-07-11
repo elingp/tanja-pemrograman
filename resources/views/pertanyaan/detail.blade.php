@@ -104,8 +104,8 @@
                 @endif
 
             </div>
-          
-           
+
+
 
 
             <div id="respond" class="comment-respond page-content clearfix">
@@ -118,7 +118,11 @@
                     <input type="hidden" name="penjawab_id" value="{{ Auth::id() }}">
                     <input type="hidden" name="pertanyaan_id" value="{{ $question->id }}">
                     <div class="form-group">
-                        <textarea class="form-control" name="isi" id="isi" rows="4"></textarea>
+                        <label for="isi" class="sr-only">Isi</label>
+                        <textarea class="form-control @error('isi') is-invalid @enderror" name="isi" id="isi" rows="4" required>{{ old('isi') }}</textarea>
+                        @error('isi')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Kirim Jawaban</button>
                 </form>
@@ -128,7 +132,7 @@
                     <div class="alert-message error">
                         <i class="fas fa-lock"></i>
                         <p><span>Login</span><br>
-                            Anda Harus Login Untuk Menjawab</p>
+                            Anda harus Login untuk menjawab!</p>
                     </div>
                 </a>
                 @endguest
@@ -136,13 +140,13 @@
         </div>
     </div>
 </div>
-    @endsection
-    @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-    <script>
-        $(document).ready(function() {
-            CKEDITOR.replace('isi');
-        });
-    </script>
-    @endpush
+@endsection
+
+@push('scripts')
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script>
+    $(document).ready(function() {
+        CKEDITOR.replace('isi');
+    });
+</script>
+@endpush

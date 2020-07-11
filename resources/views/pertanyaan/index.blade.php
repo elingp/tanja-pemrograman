@@ -2,12 +2,14 @@
 
 @section('content')
 <div class="content-wrapper ">
-
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="mb-4 border-bottom border-gray pb-2">
                 <h3>Daftar Pertanyaan <span class="float-right">
-                        <a class="btn btn-primary btn-md" href="/pertanyaan/create" role="button"><i class="fa fa-question-circle" aria-hidden="true"></i> Buat Pertanyaan</a></span></h3>
+                    <a class="btn btn-primary btn-md" href="/pertanyaan/create" role="button">
+                        <i class="fa fa-question-circle" aria-hidden="true"></i> Buat Pertanyaan
+                    </a></span>
+                </h3>
             </div>
             @if (count($questions) > 0)
                 @foreach ($questions as $question)

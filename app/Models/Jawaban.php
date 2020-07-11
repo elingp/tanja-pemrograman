@@ -20,7 +20,7 @@ class Jawaban extends Model
      * @var array
      */
     protected $fillable = [
-        'isi', 'penanya_id', 'pertanyaan_id'
+        'isi', 'penjawab_id', 'pertanyaan_id'
     ];
 
     /**
@@ -53,16 +53,5 @@ class Jawaban extends Model
     public function likedislikes()
     {
         return $this->hasMany('App\Models\LikeDisJawaban');
-    }
-    public static function insert($data)
-    {
-        $new_data = DB::table('jawaban')
-        ->insert([
-            'isi' => $data['isi'],
-            'penjawab_id' => $data['penjawab_id'],
-            'pertanyaan_id' => $data['pertanyaan_id'],
-            'created_at' => now()
-        ]);
-        return $new_data;
     }
 }
