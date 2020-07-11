@@ -16,6 +16,7 @@ class CreateKomenpertanyaanTable extends Migration
         Schema::create('komenpertanyaan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('isi');
+            $table->integer('score')->default(0);
             $table->timestamps();
             $table->unsignedBigInteger('pengomentar_id');
             $table->unsignedBigInteger('pertanyaan_id');

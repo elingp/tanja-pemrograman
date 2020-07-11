@@ -70,7 +70,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        Profile::create(['user_id' => $user->id]);
+        Profile::create([
+            'user_id' => $user->id,
+            'profile_img' => \Avatar::create($user->email)->toGravatar(['d' => 'identicon', 'r' => 'pg', 's' => 328]),
+        ]);
         return $user;
     }
 }
