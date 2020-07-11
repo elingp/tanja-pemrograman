@@ -72,8 +72,9 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        $pertanyaan = Pertanyaan::find($id);
-        $pertanyaan->increment('view');
+        // $pertanyaan = Pertanyaan::find($id);
+        $pertanyaan = Pertanyaan::with(['comments','jawaban'])->where('id', $id)->first();
+        // dd($pertanyaan->jawaban);
         return view('pertanyaan.detail', ['question' => $pertanyaan]);
     }
 
