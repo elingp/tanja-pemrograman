@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Jawaban;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class JawabanController extends Controller
 {
@@ -29,14 +28,14 @@ class JawabanController extends Controller
         $request->validate([
             'pertanyaan_id' => ['required', 'integer'],
             'penjawab_id' => ['required', 'integer'],
-            'isi' => ['required', 'min:30', 'max:65535']
+            'isi' => ['required', 'min:30', 'max:65535'],
         ]);
         Jawaban::create([
             'isi' => $request->isi,
             'penjawab_id' => $request->penjawab_id,
-            'pertanyaan_id' => $request->pertanyaan_id
+            'pertanyaan_id' => $request->pertanyaan_id,
         ]);
-        Alert::success('Berhasil', 'Jawaban berhasil dikirim');
-        return \back();
+        toast('Jawaban berhasil dikirim!','success');
+        return back();
     }
 }

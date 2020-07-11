@@ -515,16 +515,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.18.24",
+            "version": "v6.18.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0aa0acf216b98336e71cea770e11d60faeca1a92"
+                "reference": "fd4c42cb49b8777473d1161ef15d1104b2a33d6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0aa0acf216b98336e71cea770e11d60faeca1a92",
-                "reference": "0aa0acf216b98336e71cea770e11d60faeca1a92",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/fd4c42cb49b8777473d1161ef15d1104b2a33d6c",
+                "reference": "fd4c42cb49b8777473d1161ef15d1104b2a33d6c",
                 "shasum": ""
             },
             "require": {
@@ -659,7 +659,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-07-07T14:07:56+00:00"
+            "time": "2020-07-10T16:41:03+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3836,48 +3836,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "ckeditor/ckeditor",
-            "version": "4.14.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ckeditor/ckeditor4-releases.git",
-                "reference": "8eccaf31ad9832a113757d379758996ed2150f60"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ckeditor/ckeditor4-releases/zipball/8eccaf31ad9832a113757d379758996ed2150f60",
-                "reference": "8eccaf31ad9832a113757d379758996ed2150f60",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+",
-                "LGPL-2.1+",
-                "MPL-1.1+"
-            ],
-            "authors": [
-                {
-                    "name": "CKSource",
-                    "homepage": "https://cksource.com"
-                }
-            ],
-            "description": "JavaScript WYSIWYG web text editor.",
-            "homepage": "https://ckeditor.com/ckeditor-4/",
-            "keywords": [
-                "CKEditor",
-                "ckeditor4",
-                "editor",
-                "fckeditor",
-                "html",
-                "javascript",
-                "richtext",
-                "text",
-                "wysiwyg"
-            ],
-            "time": "2020-06-17T12:33:25+00:00"
-        },
         {
             "name": "doctrine/instantiator",
             "version": "1.3.1",
