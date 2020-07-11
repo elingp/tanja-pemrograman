@@ -31,6 +31,14 @@ class Pertanyaan extends Model
     }
 
     /**
+     * Get the jawaban for the pertanyaan.
+     */
+    public function jawaban()
+    {
+        return $this->hasMany('App\Models\Jawaban');
+    }
+
+    /**
      * Get the comments for the pertanyaan.
      */
     public function comments()
