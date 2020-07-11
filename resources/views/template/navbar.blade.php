@@ -9,7 +9,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="http://localhost:8000/pertanyaan" class="nav-link">Home</a>
+            <a href="/" class="nav-link">Home</a>
           </li>
          
         </ul>
@@ -28,12 +28,6 @@
     
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-          <!-- Messages Dropdown Menu -->
-          <div class="user-panel d-flex">
-          <div class="image">
-            <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-          </div>
-          </div>
           @guest
           <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -44,28 +38,34 @@
           </li>
           @endif
           @else
-          <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  {{ Auth::user()->name }} <span class="caret"></span>
-              </a>
-
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                       document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
-                  </a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        
+           <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="user-image img-circle elevation-2" alt="User Image">
+          <span class="d-none d-md-inline"> {{ Auth::user()->name }} </span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- User image -->
+          <li class="user-header bg-primary">
+            <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+            <p>
+                {{ Auth::user()->name }}  - Web Developer
+              <small>Member since Nov. 2012</small>
+            </p>
+          </li>
+        
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <a href="#" class="btn btn-default btn-flat">Profile</a>
+            <a  href="{{ route('logout') }}" onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();" class="btn btn-default btn-flat float-right"> {{ __('Logout') }}</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
                   </form>
-              </div>
           </li>
+        </ul>
+      </li>
           @endguest
-
-
-
-
-         
         </ul>
       </nav>
       <!-- /.navbar -->
