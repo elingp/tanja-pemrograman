@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('template.index')
 
 @section('content')
 
-<div class="container">
+<div class="content-wrapper ">
     <div class="row justify-content-center">
-        <div class="col-md-9">
-            <article class="question single-question question-type-normal">
+        <div class="col-md-11">
+            <article class="question question-type-normal">
                 <h2>
                     {{ $question->judul }}
                 </h2>
@@ -55,7 +55,6 @@
                     </div>
                 </div>
             </article>
-
             <div id="commentlist" class="page-content">
                 <div class="boxedtitle page-title">
                     <h2>Jawaban ( <span class="color">{{ $question->jawaban->count() }}</span> )</h2>
@@ -100,6 +99,8 @@
                     @endforeach
                 </ol><!-- End commentlist -->
             </div>
+          
+           
 
 
             <div id="respond" class="comment-respond page-content clearfix">
@@ -131,6 +132,7 @@
             </div>
         </div>
     </div>
+</div>
     @endsection
     @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>

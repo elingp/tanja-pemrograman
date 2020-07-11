@@ -12,7 +12,7 @@
 */
 
  Route::get('/master', function () {
-     return view('template.master');
+     return view('template.index');
  });
 //Route::get('/', function (){return view('welcome');})
 Route::get('/', 'PertanyaanController@index');
