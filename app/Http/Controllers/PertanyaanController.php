@@ -72,7 +72,8 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        $pertanyaan = Pertanyaan::with(['comments','jawaban'])->where('id', $id)->first();
+        $pertanyaan = Pertanyaan::with(['comments', 'jawaban'])->where('id', $id)->first();
+        $pertanyaan->increment('view');
         return view('pertanyaan.detail', ['question' => $pertanyaan]);
     }
 
@@ -85,7 +86,7 @@ class PertanyaanController extends Controller
     public function show_redirect($id)
     {
         $slug = Pertanyaan::find($id)->slug;
-        return \redirect("\pertanyaan\\{$id}\\{$slug}" );
+        return \redirect("\pertanyaan\\{$id}\\{$slug}");
     }
 
     /**
