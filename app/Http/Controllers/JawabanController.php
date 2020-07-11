@@ -16,7 +16,7 @@ class JawabanController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
