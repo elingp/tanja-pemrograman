@@ -1,6 +1,7 @@
 @extends('template.master')
 
 @section('content')
+<<<<<<< HEAD
 
         <section class="content-header">
       <div class="container-fluid">
@@ -55,6 +56,25 @@
                <span class="float-right badge bg-primar link-black text-sm"><i class="far fa-comments"></i> {{ $question->comments->count() }} answers</span>
                <span class="float-right badge bg-primar link-black text-sm"> <i class="far fa-eye"></i> {{ $question->view }} views</span>
 
+=======
+<div class="content-wrapper ">
+    <div class="row justify-content-center">
+        <div class="col-md-11">
+            <div class="mb-4 border-bottom border-gray pb-2">
+                <h3>Daftar Pertanyaan <span class="float-right">
+                    <a class="btn btn-primary btn-md" href="/pertanyaan/create" role="button">
+                        <i class="fa fa-question-circle" aria-hidden="true"></i> Buat Pertanyaan
+                    </a></span>
+                </h3>
+            </div>
+            @if (count($questions) > 0)
+                @foreach ($questions as $question)
+                <article class="question question-type-normal">
+                    <h2>
+                        <a href="/pertanyaan/{{ $question->id }}/{{ $question->slug }}">{{ $question->judul }}</a>
+                    </h2>
+                    <a class="question-report" href="#">{{ $question->created_at->diffForHumans() }}</a>
+>>>>>>> upstream/master
 
 
                  

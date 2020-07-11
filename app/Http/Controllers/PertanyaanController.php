@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PertanyaanController extends Controller
 {
@@ -26,7 +27,7 @@ class PertanyaanController extends Controller
     public function index()
     {
         $pertanyaan = Pertanyaan::orderBy('created_at', 'desc')->paginate(10);
-        return view('pertanyaan.index', ['questions' => $pertanyaan]);
+        return \view('pertanyaan.index', ['questions' => $pertanyaan]);
     }
 
     /**
@@ -36,7 +37,7 @@ class PertanyaanController extends Controller
      */
     public function create()
     {
-        return view('pertanyaan.create');
+        return \view('pertanyaan.create');
     }
 
     /**
@@ -50,7 +51,7 @@ class PertanyaanController extends Controller
         $request->validate([
             'penanya_id' => ['required', 'integer'],
             'judul' => ['required', 'max:255'],
-            'isi' => ['required', 'max:65535'],
+            'isi' => ['required', 'min:30', 'max:65535'],
             'tag' => ['nullable', 'max:255', 'regex:/^[a-zA-Z+#\-.0-9]{1,}(\s[a-zA-Z+#\-.0-9]{1,}){0,4}$/'] // max 5 kata dipisahkan spasi
         ]);
         $slug = Str::slug(Str::limit($request->judul, 100, ''));
@@ -61,7 +62,8 @@ class PertanyaanController extends Controller
             'penanya_id' => $request->penanya_id,
             'tag' => $request->tag
         ]);
-        return redirect('/pertanyaan');
+        Alert::success('Berhasil', 'Pertanyaan berhasil dikirim');
+        return \redirect('/pertanyaan');
     }
 
     /**
@@ -74,7 +76,7 @@ class PertanyaanController extends Controller
     {
         $pertanyaan = Pertanyaan::with(['comments', 'jawaban'])->where('id', $id)->first();
         $pertanyaan->increment('view');
-        return view('pertanyaan.detail', ['question' => $pertanyaan]);
+        return \view('pertanyaan.detail', ['question' => $pertanyaan]);
     }
 
     /**
@@ -98,6 +100,7 @@ class PertanyaanController extends Controller
     public function edit($id)
     {
         $pertanyaan = Pertanyaan::find($id);
+        return \view('pertanyaan.edit', ['pertanyaan' => $pertanyaan]);
     }
 
     /**
