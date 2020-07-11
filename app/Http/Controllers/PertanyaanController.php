@@ -72,9 +72,8 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        // $pertanyaan = Pertanyaan::find($id);
+
         $pertanyaan = Pertanyaan::with(['comments','jawaban'])->where('id', $id)->first();
-        // dd($pertanyaan->jawaban);
         return view('pertanyaan.detail', ['question' => $pertanyaan]);
     }
 
@@ -98,7 +97,7 @@ class PertanyaanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pertanyaan = Pertanyaan::find($id);
     }
 
     /**

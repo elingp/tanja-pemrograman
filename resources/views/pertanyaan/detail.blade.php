@@ -21,8 +21,7 @@
                         @foreach ($question->comments as $komentanya)
                         <li class="comment pt-3"><small>
                                 <p>{!! $komentanya->isi !!}. </p>
-                                {{$komentanya->user->name}} | <i class="icon-time"></i>{{ $komentanya->created_at->diffForHumans() }}
-
+                                {{$komentanya->user->name}} | <i class="far fa-clock"></i> {{ $komentanya->created_at->diffForHumans() }}
                             </small>
                         </li>
                         @endforeach
@@ -62,9 +61,7 @@
                     <h2>Jawaban ( <span class="color">{{ $question->jawaban->count() }}</span> )</h2>
                 </div>
                 <ol class="commentlist clearfix">
-
                     @foreach ($question->jawaban as $answer)
-
                     <li class="comment">
                         <div class="comment-body clearfix">
                             <div class="avatar"><img alt="" src="{{ asset('img/avatar_m.png')}}"></div>
@@ -88,12 +85,19 @@
                                 </div>
                             </div>
                         </div>
+                        @if (!empty($answer->comments))
+                        <ul class="children mb-5">
+                            @foreach ($answer->comments as $komenjawab)
+                            <li class="comment pt-3"><small>
+                                    <p>{!! $komenjawab->isi !!}. </p>
+                                    {{$komenjawab->user->name}} | <i class="far fa-clock"></i> {{ $komenjawab->created_at->diffForHumans() }}
+                                </small>
+                            </li>
+                            @endforeach
+                        </ul><!-- End children -->
+                        @endif
                     </li>
-
                     @endforeach
-
-
-
                 </ol><!-- End commentlist -->
             </div>
 
@@ -117,15 +121,12 @@
                 <a href="/login">
                     <div class="alert-message error">
                         <i class="fas fa-lock"></i>
-
                         <p><span>Login</span><br>
                             Anda Harus Login Untuk Menjawab</p>
                     </div>
                 </a>
                 @endguest
             </div>
-
-
         </div>
     </div>
     @endsection
