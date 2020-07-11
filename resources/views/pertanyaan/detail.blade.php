@@ -7,50 +7,38 @@
         <div class="col-md-9">
             <article class="question question-type-normal">
                 <h2>
-                    {{$question->judul }}
+                    {{ $question->judul }}
                 </h2>
-                <a class="question-report" href="#">{{ $question->user->name }} | {{ date('d/m/Y', strtotime($question->created_at)) }}</a>
+                <div class="question-report" href="#">{{ $question->created_at->diffForHumans() }}</div>
 
                 <div class="question-inner">
                     <div class="clearfix"></div>
-                    <p class="question-desc"> {{ strip_tags($question->isi) }}..</p>
-
-                    <span class="question-category"><a href="#"><i class="far fa-folder-open"></i> wordpress</a></span>
-                    <span class="question-favorite"><i class="far fa-thumbs-up"></i> 5</span>
-                    <span class="question-date"><i class="far fa-comment"></i> 4 mins ago</span>
-                    <span class="question-comment"><a href="#"><i class="far fa-comments"></i> 5 Answer</a></span>
+                    <div class="question-desc">{!! $question->isi !!}</div>
+                    <div class="widget_tag_cloud">
+                        @if (!empty($question->tag))
+                            @foreach (explode(' ',$question->tag) as $item)
+                                <a href="#">{{$item}}</a>
+                            @endforeach
+                        @endif
+                    </div>
+                    <div class="clearfix"></div>
+                    <span class="question-category"><a href="/p/{{ $question->id }}"><i class="far fa-share"></i> Share</a></span>
                     <span class="question-view"><i class="far fa-eye"></i> 70 views</span>
-                    <span class="single-question-vote-result">+22</span>
+                    <span class="single-question-vote-result">{{ $question->likedislikes->sum('value') }}</span>
                     <ul class="single-question-vote">
                         <li><a href="#" class="single-question-vote-down" title="Dislike"><i class="far fa-thumbs-down"></i></a></li>
                         <li><a href="#" class="single-question-vote-up" title="Like"><i class="far fa-thumbs-up"></i></a></li>
                     </ul>
                     <div class="clearfix"></div>
+                    <div class="author-image mt-3">
+                        <a href="#" original-title="{{ $question->user->name }}" class="tooltip-n"><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
+                    </div>
+                    <div class="author-bio mt-3">
+                        <h4><a href="" class="">{{ $question->user->name }}</a></h4>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
+                    </div>
                 </div>
-
-
             </article>
-            <div class="share-tags page-content">
-                <div class="question-tags widget_tag_cloud"><i class="icon-tags"></i>
-                    <a href="#">wordpress</a>, <a href="#">question</a>, <a href="#">developer</a>
-                </div>
-                <div class="share-inside"><i class="fas fa-tags"></i> Tags</div>
-                <div class="clearfix"></div>
-            </div>
-
-
-
-
-
-            <div class="about-author clearfix">
-                <div class="author-image">
-                    <a href="#" original-title="{{ $question->user->name }}" class="tooltip-n"><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
-                </div>
-                <div class="author-bio">
-                    <h4>About : <a href="" class="">{{ $question->user->name }}</a></h4>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
-                </div>
-            </div>
 
             <div id="commentlist" class="page-content">
                 <div class="boxedtitle page-title">
@@ -163,8 +151,8 @@
     </div>
     @endsection
     @push('scripts')
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="//cdn.ckeditor.com/4.14.0/basic/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
         $(document).ready(function() {
             CKEDITOR.replace('isi');

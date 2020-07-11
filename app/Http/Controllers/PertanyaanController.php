@@ -30,8 +30,6 @@ class PertanyaanController extends Controller
         $like = Pertanyaan::withCount('likedislikes')->get();
         // dd($count);
         return view('pertanyaan.index', ['questions' => $pertanyaan,'count', 'like']);
-
-
     }
 
     /**
@@ -55,8 +53,8 @@ class PertanyaanController extends Controller
         $request->validate([
             'penanya_id' => ['required', 'integer'],
             'judul' => ['required', 'max:255'],
-            'isi' => ['required', 'max:255'],
-            'tag' => ['nullable', 'max:255']
+            'isi' => ['required', 'max:65535'],
+            'tag' => ['nullable', 'max:255', 'regex:/^[a-zA-Z+#\-.0-9]{1,}(\s[a-zA-Z+#\-.0-9]{1,}){0,4}$/'] // max 5 kata dipisahkan spasi
         ]);
         $slug = Str::slug(Str::limit($request->judul, 100, ''));
         Pertanyaan::create([
@@ -78,8 +76,19 @@ class PertanyaanController extends Controller
     public function show($id)
     {
         $pertanyaan = Pertanyaan::find($id);
-        // dd($pertanyaan);
         return view('pertanyaan.detail', ['question' => $pertanyaan]);
+    }
+
+    /**
+     * Redirect to the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_redirect($id)
+    {
+        $slug = Pertanyaan::find($id)->slug;
+        return \redirect("\pertanyaan\\{$id}\\{$slug}" );
     }
 
     /**

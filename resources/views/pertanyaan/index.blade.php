@@ -13,7 +13,7 @@
                 <h2>
                     <a href="/pertanyaan/{{ $question->id }}/{{ $question->slug }}">{{ $question->judul }}</a>
                 </h2>
-                <a class="question-report" href="#">{{ $question->user->name }} | {{ date('d/m/Y', strtotime($question->created_at)) }}</a>
+                <a class="question-report" href="#">{{ $question->created_at->diffForHumans() }}</a>
 
                 <div class="question-author">
                     <a href="#" original-title="{{ $question->user->name }}" class="question-author-img tooltip-n"><span></span><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
@@ -22,22 +22,20 @@
                 <a href="" class="question-author-name">{{ $question->user->name }}</a>
                 <div class="question-inner">
                     <div class="clearfix"></div>
-                    <p class="question-desc"> {{ strip_tags($question->isi) }}.</p>
-
-                    <span class="question-category"><a href="#"><i class="far fa-folder-open"></i> {{ $question->slug }}</a></span>
-                    <span class="question-favorite"><i class="far fa-thumbs-up"></i> 5</span>
-                    <span class="question-date"><i class="far fa-comment"></i> 4 mins ago</span>
-                    <span class="question-comment"><a href="#"><i class="far fa-comments"></i> {{ $question->comments_count }} Jawaban</a></span>
+                    <div class="question-desc"> {!! Illuminate\Support\Str::limit(strip_tags($question->isi), 200) !!}</div>
+                    <div class="widget_tag_cloud">
+                        @if (!empty($question->tag))
+                            @foreach (explode(' ',$question->tag) as $item)
+                                <a href="#">{{$item}}</a>
+                            @endforeach
+                        @endif
+                    </div>
+                    <span class="question-favorite"><i class="far fa-thumbs-up"></i>{{ $question->likedislikes->sum('value') }}</span>
+                    <span class="question-date"><i class="far fa-comment"></i>{{ $question->created_at->diffForHumans() }}</span>
+                    <span class="question-comment"><a href="#"><i class="far fa-comments"></i> {{ $question->comments->count() }} answers</a></span>
                     <span class="question-view"><i class="far fa-eye"></i> 70 views</span>
                     <div class="clearfix"></div>
-                    @if ($question->tag != "")
-                    <div class="garisbawah p-2 mb-3"></div>
-                    <div class="widget_tag_cloud">
-                        @foreach (explode(' ',$question->tag) as $item)
-                        <a href="#">{{$item}}</a>
-                        @endforeach
-                    </div>
-                    @endif
+
                 </div>
 
             </article>
