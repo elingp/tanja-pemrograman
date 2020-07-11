@@ -19,9 +19,11 @@ class CreateProfilesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('reputation')->default(0);
             $table->integer('view')->default(0);
-            $table->string('full_name')->nullable();
-            $table->string('address')->nullable();
-            $table->string('photo')->nullable();
+            $table->text('about_me')->nullable();
+            $table->string('title')->nullable();
+            $table->string('location')->nullable();
+            $table->string('profile_img_url')->nullable();
+            $table->string('web_url')->nullable();
             $table->timestamps();
         });
     }

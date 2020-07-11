@@ -50,7 +50,7 @@
                         <a href="#" original-title="{{ $question->user->name }}" class="tooltip-n"><img alt="" src="{{ asset('img/avatar_m.png')}}"></a>
                     </div>
                     <div class="author-bio mt-3">
-                        <h4><a href="" class="">{{ $question->user->name }}</a></h4>
+                        <h4><a href="/profile" class="">{{ $question->user->name }}</a></h4>
                         {{ $question->user->address }}.
                     </div>
                 </div>
@@ -60,45 +60,50 @@
                 <div class="boxedtitle page-title">
                     <h2>Jawaban ( <span class="color">{{ $question->jawaban->count() }}</span> )</h2>
                 </div>
-                <ol class="commentlist clearfix">
-                    @foreach ($question->jawaban as $answer)
-                    <li class="comment">
-                        <div class="comment-body clearfix">
-                            <div class="avatar"><img alt="" src="{{ asset('img/avatar_m.png')}}"></div>
-                            <div class="comment-text">
-                                <div class="author clearfix">
-                                    <div class="comment-author"><a href="#">{{ $answer->user->name }}</a></div>
-                                    <div class="comment-vote">
-                                        <ul class="question-vote">
-                                            <li><a href="#" class="question-vote-up" title="Like"></a></li>
-                                            <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
-                                        </ul>
+                @if ($question->jawaban->count() > 0)
+                    <ol class="commentlist clearfix">
+                        @foreach ($question->jawaban as $answer)
+                        <li class="comment">
+                            <div class="comment-body clearfix">
+                                <div class="avatar"><img alt="" src="{{ asset('img/avatar_m.png')}}"></div>
+                                <div class="comment-text">
+                                    <div class="author clearfix">
+                                        <div class="comment-author"><a href="#">{{ $answer->user->name }}</a></div>
+                                        <div class="comment-vote">
+                                            <ul class="question-vote">
+                                                <li><a href="#" class="question-vote-up" title="Like"></a></li>
+                                                <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
+                                            </ul>
+                                        </div>
+                                        <span class="question-vote-result">+1</span>
+                                        <div class="comment-meta">
+                                            <div class="date"><i class="icon-time"></i>{{ $answer->created_at->diffForHumans() }}</div>
+                                        </div>
+                                        <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
                                     </div>
-                                    <span class="question-vote-result">+1</span>
-                                    <div class="comment-meta">
-                                        <div class="date"><i class="icon-time"></i>{{ $answer->created_at->diffForHumans() }}</div>
+                                    <div class="text">
+                                        {!! $answer->isi !!}
                                     </div>
-                                    <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
-                                </div>
-                                <div class="text">
-                                    {!! $answer->isi !!}
                                 </div>
                             </div>
-                        </div>
-                        @if (!empty($answer->comments))
-                        <ul class="children mb-5">
-                            @foreach ($answer->comments as $komenjawab)
-                            <li class="comment pt-3"><small>
-                                    <p>{!! $komenjawab->isi !!}. </p>
-                                    {{$komenjawab->user->name}} | <i class="far fa-clock"></i> {{ $komenjawab->created_at->diffForHumans() }}
-                                </small>
-                            </li>
-                            @endforeach
-                        </ul><!-- End children -->
-                        @endif
-                    </li>
-                    @endforeach
-                </ol><!-- End commentlist -->
+                            @if (!empty($answer->comments))
+                            <ul class="children mb-5">
+                                @foreach ($answer->comments as $komenjawab)
+                                <li class="comment pt-3"><small>
+                                        <p>{!! $komenjawab->isi !!}. </p>
+                                        {{$komenjawab->user->name}} | <i class="far fa-clock"></i> {{ $komenjawab->created_at->diffForHumans() }}
+                                    </small>
+                                </li>
+                                @endforeach
+                            </ul><!-- End children -->
+                            @endif
+                        </li>
+                        @endforeach
+                    </ol><!-- End commentlist -->
+                @else
+                    <p>Belum ada jawaban! Jadilah yang pertama menjawab pertanyaan ini.</p>
+                @endif
+
             </div>
 
 
@@ -111,11 +116,9 @@
                     @csrf
                     <input type="hidden" name="penjawab_id" value="{{ Auth::id() }}">
                     <input type="hidden" name="pertanyaan_id" value="{{ $question->id }}">
-                    <input type="hidden" name="slug" value="{{ $question->slug }}">
                     <div class="form-group">
                         <textarea class="form-control" name="isi" id="isi" rows="4"></textarea>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Kirim Jawaban</button>
                 </form>
                 @endauth
