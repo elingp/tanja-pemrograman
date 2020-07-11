@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class PertanyaanController extends Controller
 {
@@ -26,8 +25,8 @@ class PertanyaanController extends Controller
      */
     public function index()
     {
-        $pertanyaan = Pertanyaan::orderBy('created_at', 'desc')->paginate(10);
-        return \view('pertanyaan.index', ['questions' => $pertanyaan]);
+        $pertanyaan = Pertanyaan::latest()->paginate(15);
+        return view('pertanyaan.index', ['questions' => $pertanyaan]);
     }
 
     /**
@@ -37,7 +36,7 @@ class PertanyaanController extends Controller
      */
     public function create()
     {
-        return \view('pertanyaan.create');
+        return view('pertanyaan.create');
     }
 
     /**
@@ -48,22 +47,22 @@ class PertanyaanController extends Controller
      */
     public function store(Request $request)
     {
+        // regex tag dengan pola max 5 kata dipisahkan oleh spasi
         $request->validate([
             'penanya_id' => ['required', 'integer'],
             'judul' => ['required', 'max:255'],
             'isi' => ['required', 'min:30', 'max:65535'],
-            'tag' => ['nullable', 'max:255', 'regex:/^[a-zA-Z+#\-.0-9]{1,}(\s[a-zA-Z+#\-.0-9]{1,}){0,4}$/'] // max 5 kata dipisahkan spasi
+            'tag' => ['nullable', 'max:255', 'regex:/^[a-zA-Z+#\-.0-9]{1,}(\s[a-zA-Z+#\-.0-9]{1,}){0,4}$/'],
         ]);
-        $slug = Str::slug(Str::limit($request->judul, 100, ''));
         Pertanyaan::create([
             'judul' => $request->judul,
             'isi' => $request->isi,
-            'slug' => $slug,
+            'slug' => Str::slug(Str::limit($request->judul, 100, '')),
             'penanya_id' => $request->penanya_id,
-            'tag' => $request->tag
+            'tag' => $request->tag,
         ]);
-        Alert::success('Berhasil', 'Pertanyaan berhasil dikirim');
-        return \redirect('/pertanyaan');
+        toast('Pertanyaan berhasil dikirim!','success');
+        return redirect('/pertanyaan');
     }
 
     /**
@@ -72,11 +71,11 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
         $pertanyaan = Pertanyaan::with(['comments', 'jawaban'])->where('id', $id)->first();
         $pertanyaan->increment('view');
-        return \view('pertanyaan.detail', ['question' => $pertanyaan]);
+        return view('pertanyaan.detail', ['question' => $pertanyaan]);
     }
 
     /**
@@ -85,10 +84,10 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_redirect($id)
+    public function showRedirect(int $id)
     {
         $slug = Pertanyaan::find($id)->slug;
-        return \redirect("\pertanyaan\\{$id}\\{$slug}");
+        return redirect("\pertanyaan\\{$id}\\{$slug}");
     }
 
     /**
@@ -97,10 +96,10 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         $pertanyaan = Pertanyaan::find($id);
-        return \view('pertanyaan.edit', ['pertanyaan' => $pertanyaan]);
+        return view('pertanyaan.edit', ['pertanyaan' => $pertanyaan]);
     }
 
     /**
@@ -110,7 +109,7 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
         //
     }

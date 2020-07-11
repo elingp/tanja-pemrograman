@@ -19,7 +19,7 @@ class Pertanyaan extends Model
      * @var array
      */
     protected $fillable = [
-        'judul', 'isi', 'tag', 'slug', 'penanya_id'
+        'judul', 'isi', 'tag', 'slug', 'penanya_id',
     ];
 
     /**

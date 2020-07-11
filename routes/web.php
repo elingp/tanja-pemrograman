@@ -20,7 +20,7 @@ Route::get('/pertanyaan', 'PertanyaanController@index');
 Route::get('/pertanyaan/create', 'PertanyaanController@create');
 Route::post('/pertanyaan', 'PertanyaanController@store');
 Route::get('/pertanyaan/{id}/{slug}', 'PertanyaanController@show');
-Route::get('/p/{id}', 'PertanyaanController@show_redirect');
+Route::get('/p/{id}', 'PertanyaanController@showRedirect');
 Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit');
 Route::put('/pertanyaan/{id}', 'PertanyaanController@update');
 Route::delete('/pertanyaan/{id}', 'PertanyaanController@destroy');

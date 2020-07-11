@@ -19,7 +19,7 @@ class KomenPertanyaan extends Model
      * @var array
      */
     protected $fillable = [
-        'isi', 'pengomentar_id', 'pertanyaan_id'
+        'isi', 'pengomentar_id', 'pertanyaan_id',
     ];
 
     /**

@@ -48,7 +48,7 @@ class User extends Authenticatable
     /**
      * Get the comments jawaban for the user.
      */
-    public function comments_jawaban()
+    public function commentsJawaban()
     {
         return $this->hasMany('App\Models\KomenJawaban', 'pengomentar_id');
     }
@@ -56,7 +56,7 @@ class User extends Authenticatable
     /**
      * Get the comments pertanyaan for the user.
      */
-    public function comments_pertanyaan()
+    public function commentsPertanyaan()
     {
         return $this->hasMany('App\Models\KomenPertanyaan', 'pengomentar_id');
     }
@@ -64,7 +64,7 @@ class User extends Authenticatable
     /**
      * Get the like and dislikes jawaban for the user.
      */
-    public function likedislikes_jawaban()
+    public function likedislikesJawaban()
     {
         return $this->hasMany('App\Models\LikeDisJawaban');
     }
@@ -72,7 +72,7 @@ class User extends Authenticatable
     /**
      * Get the like and dislikes pertanyaan for the user.
      */
-    public function likedislikes_pertanyaan()
+    public function likedislikesPertanyaan()
     {
         return $this->hasMany('App\Models\LikeDisPertanyaan');
     }

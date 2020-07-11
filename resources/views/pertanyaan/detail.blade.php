@@ -1,4 +1,4 @@
-@extends('template.index')
+@extends('layouts.app')
 
 @section('content')
 
@@ -38,7 +38,7 @@
                         @endif
                     </div>
                     <div class="clearfix"></div>
-                    <span class="question-category"><a href="/p/{{ $question->id }}"><i class="far fa-share"></i> Share</a></span>
+                    <span class="question-category"><a href="/p/{{ $question->id }}"><i class="fas fa-share"></i> Share</a></span>
                     <span class="question-view"><i class="far fa-eye"></i> {{ $question->view }} views</span>
                     <span class="single-question-vote-result">{{ $question->likedislikes->sum('value') }}</span>
                     <ul class="single-question-vote">
