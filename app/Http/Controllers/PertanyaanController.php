@@ -72,7 +72,6 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-
         $pertanyaan = Pertanyaan::with(['comments','jawaban'])->where('id', $id)->first();
         return view('pertanyaan.detail', ['question' => $pertanyaan]);
     }

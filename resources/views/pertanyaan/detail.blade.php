@@ -81,7 +81,7 @@
                                     <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
                                 </div>
                                 <div class="text">
-                                    <p>{!! $answer->isi !!}.</p>
+                                    {!! $answer->isi !!}
                                 </div>
                             </div>
                         </div>
@@ -107,9 +107,11 @@
                 <div class="boxedtitle page-title">
                     <h2>Jawaban Anda</h2>
                 </div>
-                <form action="/pertanyaan" method="POST">
+                <form action="/jawaban" method="POST">
                     @csrf
-                    <input type="hidden" name="penanya_id" value="{{ Auth::id() }}">
+                    <input type="hidden" name="penjawab_id" value="{{ Auth::id() }}">
+                    <input type="hidden" name="pertanyaan_id" value="{{ $question->id }}">
+                    <input type="hidden" name="slug" value="{{ $question->slug }}">
                     <div class="form-group">
                         <textarea class="form-control" name="isi" id="isi" rows="4"></textarea>
                     </div>
