@@ -14,16 +14,32 @@
                 <div class="question-inner">
                     <div class="clearfix"></div>
                     <div class="question-desc">{!! $question->isi !!}</div>
+
+                    @if (!empty($question->comments))
+                    <h5>Komentar :</h5>
+                    <ul class="children mb-5">
+                        @foreach ($question->comments as $komentanya)
+                        <li class="comment pt-3"><small>
+                                <p>{!! $komentanya->isi !!}. </p>
+                                {{$komentanya->user->name}} | <i class="far fa-clock"></i> {{ $komentanya->created_at->diffForHumans() }}
+                            </small>
+                        </li>
+                        @endforeach
+                    </ul><!-- End children -->
+                    @endif
+
+                    <div class="clearfix"></div>
+
                     <div class="widget_tag_cloud">
                         @if (!empty($question->tag))
-                            @foreach (explode(' ',$question->tag) as $item)
-                                <a href="#">{{$item}}</a>
-                            @endforeach
+                        @foreach (explode(' ',$question->tag) as $item)
+                        <a href="#">{{$item}}</a>
+                        @endforeach
                         @endif
                     </div>
                     <div class="clearfix"></div>
                     <span class="question-category"><a href="/p/{{ $question->id }}"><i class="far fa-share"></i> Share</a></span>
-                    <span class="question-view"><i class="far fa-eye"></i> 70 views</span>
+                    <span class="question-view"><i class="far fa-eye"></i> {{ $question->view }} views</span>
                     <span class="single-question-vote-result">{{ $question->likedislikes->sum('value') }}</span>
                     <ul class="single-question-vote">
                         <li><a href="#" class="single-question-vote-down" title="Dislike"><i class="far fa-thumbs-down"></i></a></li>
@@ -35,67 +51,22 @@
                     </div>
                     <div class="author-bio mt-3">
                         <h4><a href="" class="">{{ $question->user->name }}</a></h4>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
+                        {{ $question->user->address }}.
                     </div>
                 </div>
             </article>
             <div id="commentlist" class="page-content">
                 <div class="boxedtitle page-title">
-                    <h2>Answers ( <span class="color">5</span> )</h2>
+                    <h2>Jawaban ( <span class="color">{{ $question->jawaban->count() }}</span> )</h2>
                 </div>
                 <ol class="commentlist clearfix">
-                    <li class="comment">
-                        <div class="comment-body comment-body-answered clearfix">
-                            <div class="avatar"><img alt="" src="{{ asset('img/avatar_m.png')}}"></div>
-                            <div class="comment-text">
-                                <div class="author clearfix">
-                                    <div class="comment-author"><a href="#">admin</a></div>
-                                    <div class="comment-vote">
-                                        <ul class="question-vote">
-                                            <li><a href="#" class="question-vote-up" title="Like"></a></li>
-                                            <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
-                                        </ul>
-                                    </div>
-                                    <span class="question-vote-result">+1</span>
-                                    <div class="comment-meta">
-                                        <div class="date"><i class="icon-time"></i>January 15 , 2014 at 10:00 pm</div>
-                                    </div>
-                                    <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
-                                </div>
-                                <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequatLorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
-                                </div>
-                                <div class="question-answered question-answered-done"><i class="fas fa-certificate"></i> Best Answer</div>
-                            </div>
-                        </div>
-                        <ul class="children mb-5">
-                            <li class="comment">
-                                <div class="comment-text m-6">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. </p>
-                                    <div class="comment-meta date">
-                                        namauser | <i class="icon-time"></i>January 15 , 2014 at 10:00 pm
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="comment">
-                                <div class="comment-text m-6">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. </p>
-                                    <div class="comment-meta date">
-                                        namauser | <i class="icon-time"></i>January 15 , 2014 at 10:00 pm
-                                    </div>
-                                </div>
-                            </li>
-
-
-
-                        </ul><!-- End children -->
-                    </li>
+                    @foreach ($question->jawaban as $answer)
                     <li class="comment">
                         <div class="comment-body clearfix">
                             <div class="avatar"><img alt="" src="{{ asset('img/avatar_m.png')}}"></div>
                             <div class="comment-text">
                                 <div class="author clearfix">
-                                    <div class="comment-author"><a href="#">2code</a></div>
+                                    <div class="comment-author"><a href="#">{{ $answer->user->name }}</a></div>
                                     <div class="comment-vote">
                                         <ul class="question-vote">
                                             <li><a href="#" class="question-vote-up" title="Like"></a></li>
@@ -104,16 +75,28 @@
                                     </div>
                                     <span class="question-vote-result">+1</span>
                                     <div class="comment-meta">
-                                        <div class="date"><i class="icon-time"></i>January 15 , 2014 at 10:00 pm</div>
+                                        <div class="date"><i class="icon-time"></i>{{ $answer->created_at->diffForHumans() }}</div>
                                     </div>
                                     <a class="comment-reply" href="#"><i class="fas fa-reply"></i>Reply</a>
                                 </div>
                                 <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
+                                    {!! $answer->isi !!}
                                 </div>
                             </div>
                         </div>
+                        @if (!empty($answer->comments))
+                        <ul class="children mb-5">
+                            @foreach ($answer->comments as $komenjawab)
+                            <li class="comment pt-3"><small>
+                                    <p>{!! $komenjawab->isi !!}. </p>
+                                    {{$komenjawab->user->name}} | <i class="far fa-clock"></i> {{ $komenjawab->created_at->diffForHumans() }}
+                                </small>
+                            </li>
+                            @endforeach
+                        </ul><!-- End children -->
+                        @endif
                     </li>
+                    @endforeach
                 </ol><!-- End commentlist -->
             </div>
           
@@ -125,9 +108,11 @@
                 <div class="boxedtitle page-title">
                     <h2>Jawaban Anda</h2>
                 </div>
-                <form action="/pertanyaan" method="POST">
+                <form action="/jawaban" method="POST">
                     @csrf
-                    <input type="hidden" name="penanya_id" value="{{ Auth::id() }}">
+                    <input type="hidden" name="penjawab_id" value="{{ Auth::id() }}">
+                    <input type="hidden" name="pertanyaan_id" value="{{ $question->id }}">
+                    <input type="hidden" name="slug" value="{{ $question->slug }}">
                     <div class="form-group">
                         <textarea class="form-control" name="isi" id="isi" rows="4"></textarea>
                     </div>
@@ -139,15 +124,12 @@
                 <a href="/login">
                     <div class="alert-message error">
                         <i class="fas fa-lock"></i>
-
                         <p><span>Login</span><br>
                             Anda Harus Login Untuk Menjawab</p>
                     </div>
                 </a>
                 @endguest
             </div>
-
-
         </div>
     </div>
 </div>
