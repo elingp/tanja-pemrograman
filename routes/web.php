@@ -32,4 +32,8 @@ Route::post('/komen-jawaban', 'KomenController@storeJawab');
 
 Route::get('/profil', 'ProfilController@index');
 
+Route::get('/is_logged', 'LikeDisController@isLogged');
+Route::post('/vote-pertanyaan', 'LikeDisController@storeTanya');
+Route::post('/vote-jawaban', 'LikeDisController@storeJawab');
+
 Auth::routes();
