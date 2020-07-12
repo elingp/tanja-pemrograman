@@ -18,6 +18,12 @@ class KomenController extends Controller
     {
         $this->middleware('auth');
     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function storeTanya(Request $request)
     {
         $request->validate([
@@ -33,6 +39,12 @@ class KomenController extends Controller
         toast('Komentar berhasil dikirim!', 'success');
         return back();
     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function storeJawab(Request $request)
     {
         $request->validate([
