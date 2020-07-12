@@ -102,8 +102,7 @@ class PertanyaanController extends Controller
     public function edit(int $id)
     {
         $pertanyaan = Pertanyaan::find($id);
-        if ($pertanyaan->penanya_id != auth()->id())
-        {
+        if ($pertanyaan->penanya_id != auth()->id()) {
             toast('Hanya pembuat pertanyaan yang bisa mengubah!', 'warning');
             return back();
         }
@@ -120,8 +119,7 @@ class PertanyaanController extends Controller
     public function update(Request $request, int $id)
     {
         // regex tag dengan pola max 5 kata dipisahkan oleh spasi
-        if ($request->action == 'delete')
-        {
+        if ($request->action == 'delete') {
             $this->destroy($id);
             return redirect('/pertanyaan');
         }
@@ -150,5 +148,6 @@ class PertanyaanController extends Controller
     {
         Pertanyaan::destroy($id);
         toast('Pertanyaan berhasil dihapus!', 'success');
+        return redirect("/pertanyaan");
     }
 }

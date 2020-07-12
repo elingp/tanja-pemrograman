@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profile;
+use App\Models\Profil;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 {
@@ -24,9 +25,9 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        // $profile = Profile::get();
-        // $profile = Profile::find(Auth::id);
-        dd($profile);
+        $user =  Auth::user()->id;
+        $profile = User::with('profile')->where('id', $user)->first();
+        // dd($profile);
         return view('profile.index', ['profil' => $profile]);
     }
 }

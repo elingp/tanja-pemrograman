@@ -22,12 +22,12 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       @guest
-      <li class="nav-item">
-          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+      <li class="nav-item mr-1">
+          <a class="btn btn-outline-primary btn-sm" href="{{ route('login') }}">{{ __('Login') }}</a>
       </li>
       @if (Route::has('register'))
       <li class="nav-item">
-          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+          <a class="btn btn-primary btn-sm" href="{{ route('register') }}">{{ __('Register') }}</a>
       </li>
       @endif
       @else
