@@ -5,14 +5,17 @@
     @include('includes.head')
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-boxed sidebar-collapse">
 
     <!-- Site wrapper -->
     <div class="wrapper">
+
         @include('includes.navbar')
         @include('includes.sidebar')
 
-        @yield('content')
+        <div class="content-wrapper">
+            @yield('content')
+        </div>
 
         @include('includes.footer')
     </div>
