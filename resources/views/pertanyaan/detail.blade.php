@@ -28,13 +28,10 @@
                <span class="badge bg-primar link-black text-sm"><small><i class="far fa-comment"></i> {{ $question->created_at->diffForHumans() }}</small></span>
                <span class="badge bg-primar link-black text-sm"><small><i class="far fa-comments"></i> {{ $question->comments->count() }} answers</small></span>
                <span class="badge bg-primar link-black text-sm"><small><i class="far fa-eye"></i> {{ $question->view }} views</small></span>
-      
                 </span>
                 </div>
-                <!-- /.user-block -->
                 <div class="card-tools">
                 </div>
-                <!-- /.card-tools -->
               </div>
  <div class="card-body">
   {!! $question->isi !!}
@@ -52,34 +49,38 @@
 
 
 @if (!empty($question->comments))
-<br>
-<hr>
-
-
-                        @foreach ($question->comments as $komentanya)
-                        {{-- <li class="comment pt-3"><small>
-                                <p>{!! $komentanya->isi !!}. </p>
-                                {{$komentanya->user->name}} | <i class="far fa-clock"></i> {{ $komentanya->created_at->diffForHumans() }}
-                            </small>
-                        </li> --}}
-                        <div class="direct-chat-msg">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-left"> {{$komentanya->user->name}}</span>
-                      <span class="direct-chat-timestamp float-right">{{ $komentanya->created_at->diffForHumans() }}</span>
-                    </div>
-                    <img class="direct-chat-img" src="{{ asset('img/avatar_m.png')}}" alt="Message User Image">
-                    <div class="direct-chat-text">
-                      {!! $komentanya->isi !!}
-                    </div>
-                  </div>
-                        @endforeach
-
-                    @endif
+<br><hr>
+@foreach ($question->comments as $komentanya)
+    <div class="direct-chat-msg">
+        <div class="direct-chat-infos clearfix">
+            <span class="direct-chat-name float-left"> {{$komentanya->user->name}}</span>
+            <span class="direct-chat-timestamp float-right">{{ $komentanya->created_at->diffForHumans() }}</span>
+        </div>
+    <img class="direct-chat-img" src="{{ asset('img/avatar_m.png')}}" alt="Message User Image">
+    <div class="direct-chat-text">
+        {!! $komentanya->isi !!}
+    </div>
+    </div>
+@endforeach
+@endif
                      
 </div>
+
+@auth
+    <form action="/komen-pertanyaan" method="POST">
+@csrf
+<input type="hidden" name="pengomentar_id" value="{{ Auth::id() }}">
+<input type="hidden" name="pertanyaan_id" value="{{ $question->id }}">
  <div class="card-footer">
-<a href="#"  data-toggle="modal" data-target="#myModal" class="link-black text-sm mr-2 mt-2"><i class="fas fa-share mr-1"></i> Komentar</a>
+        <div class="input-group input-group-sm">
+                  <input type="text" name="isi" class="form-control" placeholder="Type a comment">
+                  <span class="input-group-append">
+                    <button type="submit" class="btn btn-info btn-flat">komentar</button>
+                  </span>
+                </div>
 </div>
+    </form>
+@endauth
      </div>
 </section>
 
@@ -96,9 +97,11 @@
                         <img class="img-circle img-bordered-sm" src="{{ asset('img/avatar_m.png')}}" alt="user image">
                         <span class="username">
                           <a href="#">{{ $answer->user->name }}</a>
+                          @auth
                           @if (Auth::user()->name== $answer->user->name)
                               <button type="button" class="btn btn-danger btn-xs float-right"><i class="far fa-trash-alt"></i> Hapus</button>
                           @endif
+                          @endauth
                         </span>
                         <span class="description">{{ $answer->created_at->diffForHumans() }}</span>
                       </div>
@@ -108,8 +111,9 @@
                       </p>
 
                       <p>
-                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                        <a href="#" class="link-black text-sm mr-2 text-primary"><i class="far fa-bookmark"></i> Best Answer</a>
+                        <a href="#" class="link-black text-sm mr-2 text-mutted"><i class="fas fa-share mr-1"></i> Share</a>
+                        <a href="#" class="link-black text-sm text-mutted"><i class="far fa-thumbs-up mr-1"></i> Like</a>
                         <span class="float-right">
                           <a href="#" class="link-black text-sm">
                             <i class="far fa-comments mr-1"></i> Comments (5)
@@ -117,13 +121,19 @@
                         </span>
                       </p>
 
-
-                      <div class="input-group input-group-sm">
-                  <input type="text" class="form-control" placeholder="Type a comment">
+@auth
+    <form action="/komen-jawaban" method="POST">
+@csrf
+<input type="hidden" name="penjawab_id" value="{{ Auth::id() }}">
+<input type="hidden" name="jawaban_id" value="{{ $answer->id }}">
+                <div class="input-group input-group-sm">
+                  <input type="text" name="isi" class="form-control" placeholder="Type a comment">
                   <span class="input-group-append">
-                    <button type="button" class="btn btn-info btn-flat">komentar</button>
+                    <button type="submit" class="btn btn-info btn-flat">komentar</button>
                   </span>
                 </div>
+    </form>
+                @endauth
                     </div>
                         @endforeach
                    
@@ -169,8 +179,6 @@
 </section>
 
 @endsection
-
- @include('includes.modal')
 
 @push('scripts')
 <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>

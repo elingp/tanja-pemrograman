@@ -5,7 +5,7 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>@yield('tile') - Tanja Pemrograman</title>
+<title>@yield('title') - Tanja Pemrograman</title>
 <!-- Fonts -->
 <link href="//fonts.gstatic.com" rel="dns-prefetch">
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
