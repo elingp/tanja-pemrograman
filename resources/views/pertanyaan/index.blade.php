@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Kelompok 13')
 @section('content')
 
 
@@ -31,14 +31,13 @@
                 <!-- /.user-block -->
                 <div class="card-tools">
                  <span data-toggle="tooltip" title={{ $question->created_at->diffForHumans() }}" class="badge bg-info"><i class="fas fa-clock"></i> {{ $question->created_at->diffForHumans() }}</span>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i> --}}
                   </button>
                 </div>
                 <!-- /.card-tools -->
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <!-- post text -->
                {!! Illuminate\Support\Str::limit(strip_tags($question->isi), 200) !!}
               </div>
               <!-- /.card-footer -->
