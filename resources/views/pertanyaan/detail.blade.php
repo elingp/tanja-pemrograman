@@ -42,10 +42,16 @@
                         @endforeach
                         @endif
 
- <div class="btn-group float-right">
-                        <button type="button" class="btn btn-outline-primary btn-sm"><i class="far fa-thumbs-up mr-1"></i></button>
-                        <button type="button" class="btn btn-outline-primary btn-sm"><i class="far fa-thumbs-down mr-1"></i></button>
-                       </div>
+                    <div class="btn-group float-right topic" data-post="{{ $question->id }}">
+                        <button type="button" class="btn btn-outline-primary btn-sm vote-pertanyaan"
+                        {{ $question->likedislikes && $question->likedislikes->contains('user_id', Auth::id()) ? ($question->likedislikes->where('user_id', Auth::id())->first()->value > 0 ? 'upvote-on' : null) : null}}"
+                        data-value="1" data-post-id="{{ $question->id }}"
+                        ><i class="far fa-thumbs-up mr-1"></i></button>
+                        <button type="button" class="btn btn-outline-primary btn-sm vote-pertanyaan"
+                        {{ $question->likedislikes && $question->likedislikes->contains('user_id', Auth::id()) ? ($question->likedislikes->where('user_id', Auth::id())->first()->value < 0 ? 'downvote-on' : null) : null}}"
+                        data-value="-1" data-post-id="{{ $question->id }}"
+                        ><i class="far fa-thumbs-down mr-1"></i></button>
+                   </div>
 
 
 @if (!empty($question->comments))
@@ -204,6 +210,68 @@
 <script>
     $(document).ready(function() {
         CKEDITOR.replace('isi');
+    });
+</script>
+<script>
+    // CSRF token setup for jQuery
+    var csrf_token = $('meta[name="csrf-token"]').attr('content');
+    $.ajaxPrefilter(function(options, originalOptions, jqXHR){
+        switch (options['type'].toLowerCase()) {
+            case "post":
+            case "delete":
+            case "put":
+                // add leading ampersand if `data` is non-empty
+                if (options.data != '') {
+                    options.data += '&';
+                }
+                // add _token entry
+                options.data += "_token=" + csrf_token;
+                break;
+        }
+    });
+    $.get( "/is_logged", function(data)
+    {
+        data.status == false ? console.log('not logged in') : console.log('logged in');
+        $('.vote-pertanyaan').on('click', function (e) {
+            e.preventDefault();
+            var $button = $(this);
+            var pertanyaanId = $button.data('post-id');
+            var value = $button.data('value');
+            if(data.status == false) {
+                sweetAlert("Oops...", "You are not logged in!", "error");
+                window.setInterval(function()
+                {
+                    $('button.upvote').removeClass('upvote-on');
+                    $('button.downvote').removeClass('downvote-on');
+                }, 500);
+            } else {
+                $.post('/vote-pertanyaan', {pertanyaan_id:pertanyaanId, value:value}, function(data) {
+                    // success here
+                }).fail(function() {
+                    sweetAlert("Oops...", "Something went wrong...", "error");
+                }, 'json');
+            }
+        });
+        $('.vote-jawaban').on('click', function (e) {
+            e.preventDefault();
+            var $button = $(this);
+            var jawabanId = $button.data('post-id');
+            var value = $button.data('value');
+            if(data.status == false) {
+                sweetAlert("Oops...", "You are not logged in!", "error");
+                window.setInterval(function()
+                {
+                    $('button.upvote').removeClass('upvote-on');
+                    $('button.downvote').removeClass('downvote-on');
+                }, 500);
+            } else {
+                $.post('/vote-jawaban', {jawaban_id:jawabanId, value:value}, function(data) {
+                    // success here
+                }).fail(function() {
+                    sweetAlert("Oops...", "Something went wrong...", "error");
+                }, 'json');
+            }
+        });
     });
 </script>
 @endpush
