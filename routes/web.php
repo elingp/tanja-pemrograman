@@ -30,4 +30,6 @@ Route::post('/jawaban', 'JawabanController@store');
 Route::post('/komen-pertanyaan', 'KomenController@storeTanya');
 Route::post('/komen-jawaban', 'KomenController@storeJawab');
 
+Route::get('/profil', 'ProfilController@index');
+
 Auth::routes();
