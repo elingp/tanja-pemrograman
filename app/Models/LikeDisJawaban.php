@@ -26,7 +26,7 @@ class LikeDisJawaban extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'jawaban_id', 'value'
+        'user_id', 'jawaban_id', 'value',
     ];
 
     /**

@@ -20,7 +20,7 @@ class Jawaban extends Model
      * @var array
      */
     protected $fillable = [
-        'isi', 'penjawab_id', 'pertanyaan_id'
+        'isi', 'penjawab_id', 'pertanyaan_id',
     ];
 
     /**
