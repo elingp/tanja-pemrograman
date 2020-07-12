@@ -17042,11 +17042,3 @@ readers do not read off random characters that represent icons */
     font-family: "Font Awesome 5 Brands";
     font-weight: 400;
 }
-
-.header-title {
-    color: #495057;
-    font-size: 16px;
-    line-height: 1.1;
-    font-weight: 600;
-    color: #007bff;
-}

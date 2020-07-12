@@ -13,10 +13,8 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-{{-- <link href="{{ asset('css/base.css') }}" rel="stylesheet"> --}}
-{{-- <link href="{{ asset('css/skins.css') }}" rel="stylesheet"> --}}
-{{-- <link href="{{ asset('css/custom-style.css') }}" rel="stylesheet"> --}}
 <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 <link href="{{ asset('adminlte/dist/css/adminlte.min.css') }}" rel="stylesheet" >
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet" >
 
 @stack('stylesheet')
