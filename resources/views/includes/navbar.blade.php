@@ -22,18 +22,18 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       @guest
-      <li class="nav-item">
-          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+      <li class="nav-item mr-1">
+          <a class="btn btn-outline-primary btn-sm" href="{{ route('login') }}">{{ __('Login') }}</a>
       </li>
       @if (Route::has('register'))
       <li class="nav-item">
-          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+          <a class="btn btn-primary btn-sm" href="{{ route('register') }}">{{ __('Register') }}</a>
       </li>
       @endif
       @else
 
        <li class="nav-item dropdown user-menu">
-    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+    <a href="#" class="nav-link dropdown-toggle btn btn-default" data-toggle="dropdown">
       <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="user-image img-circle elevation-2" alt="User Image">
       <span class="d-none d-md-inline"> {{ Auth::user()->name }} </span>
     </a>

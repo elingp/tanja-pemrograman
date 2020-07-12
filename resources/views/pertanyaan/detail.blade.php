@@ -23,6 +23,7 @@
                   <img class="img-circle" src="{{ asset('img/avatar_m.png')}}" alt="User Image">
                   <span class="username"><a href="#" class="text-muted">{{ $question->user->name }}</a></span>
                   <span class="description text-bold"><h3> <a href="/pertanyaan/{{ $question->id }}/{{ $question->slug }}">{{ $question->judul }}</a></h3></span>
+                 
                   <span class="description text-sm">
                 <span class="badge bg-primar link-black text-sm"><small><i class="far fa-thumbs-up"></i> Like ({{ $question->likedislikes->sum('value') }})</small></span>
                <span class="badge bg-primar link-black text-sm"><small><i class="far fa-comment"></i> {{ $question->created_at->diffForHumans() }}</small></span>
@@ -42,7 +43,10 @@
                         @endforeach
                         @endif
 
-                    <div class="btn-group float-right topic" data-post="{{ $question->id }}">
+
+ 
+
+                    <div class="btn-group float-right topic ml-1" data-post="{{ $question->id }}">
                         <button type="button" class="btn btn-outline-primary btn-sm vote-pertanyaan"
                         {{ $question->likedislikes && $question->likedislikes->contains('user_id', Auth::id()) ? ($question->likedislikes->where('user_id', Auth::id())->first()->value > 0 ? 'upvote-on' : null) : null}}"
                         data-value="1" data-post-id="{{ $question->id }}"
@@ -52,7 +56,16 @@
                         data-value="-1" data-post-id="{{ $question->id }}"
                         ><i class="far fa-thumbs-down mr-1"></i></button>
                    </div>
-
+@auth
+                          @if (Auth::user()->name== $question->user->name)
+                  <a href="/pertanyaan/{{$question->id}}/{{$question->slug}}/edit" class="btn btn-info btn-sm float-right ml-1 ml-1"><i class="fas fa-pen"></i> Edit</a>
+                  <form action="/pertanyaan/{{$question->id}}" method="POST" style="display:inline;">
+@csrf
+ @method('DELETE')
+                              <button type="submit" class="btn btn-danger btn-sm float-right ml-1"><i class="far fa-trash-alt"></i> Hapus</button>
+                  </form>
+                          @endif
+                          @endauth
 
 @if (!empty($question->comments))
 <br><hr>
@@ -108,6 +121,7 @@
                           <a href="#">{{ $answer->user->name }}</a>
                           @auth
                           @if (Auth::user()->name== $answer->user->name)
+                              <a href="" class="btn btn-info btn-xs float-right ml-1"><i class="far fa-trash-alt"></i> Edit</a>
                               <button type="button" class="btn btn-danger btn-xs float-right"><i class="far fa-trash-alt"></i> Hapus</button>
                           @endif
                           @endauth
