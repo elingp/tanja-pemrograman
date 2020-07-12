@@ -36,7 +36,6 @@ class JawabanController extends Controller
             'pertanyaan_id' => $request->pertanyaan_id,
         ]);
         toast('Jawaban berhasil dikirim!', 'success');
-
         return back();
     }
 }

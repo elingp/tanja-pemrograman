@@ -63,7 +63,6 @@ class PertanyaanController extends Controller
             'tag' => $request->tag,
         ]);
         toast('Pertanyaan berhasil dikirim!', 'success');
-
         return redirect('/pertanyaan');
     }
 
@@ -91,7 +90,7 @@ class PertanyaanController extends Controller
     {
         $slug = Pertanyaan::find($id)->slug;
 
-        return redirect("\pertanyaan\\{$id}\\{$slug}");
+        return redirect("/pertanyaan/{$id}/{$slug}");
     }
 
     /**
@@ -103,7 +102,11 @@ class PertanyaanController extends Controller
     public function edit(int $id)
     {
         $pertanyaan = Pertanyaan::find($id);
-
+        if ($pertanyaan->penanya_id != auth()->id())
+        {
+            toast('Hanya pembuat pertanyaan yang bisa mengubah!', 'warning');
+            return back();
+        }
         return view('pertanyaan.edit', ['pertanyaan' => $pertanyaan]);
     }
 
@@ -116,7 +119,25 @@ class PertanyaanController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        //
+        // regex tag dengan pola max 5 kata dipisahkan oleh spasi
+        if ($request->action == 'delete')
+        {
+            $this->destroy($id);
+            return redirect('/pertanyaan');
+        }
+        $request->validate([
+            'judul' => ['required', 'max:255'],
+            'isi' => ['required', 'min:30', 'max:65535'],
+            'tag' => ['nullable', 'max:255', 'regex:/^[a-zA-Z+#\-.0-9]{1,}(\s[a-zA-Z+#\-.0-9]{1,}){0,4}$/'],
+        ]);
+        $pertanyaan = Pertanyaan::find($id);
+        $slug = $pertanyaan->slug;
+        $pertanyaan->judul = $request->judul;
+        $pertanyaan->isi = $request->isi;
+        $pertanyaan->tag = $pertanyaan->tag;
+        $pertanyaan->save();
+        toast('Pertanyaan berhasil disunting!', 'success');
+        return redirect("/pertanyaan/{$id}/{$slug}");
     }
 
     /**
@@ -125,8 +146,9 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        Pertanyaan::destroy($id);
+        toast('Pertanyaan berhasil dihapus!', 'success');
     }
 }
