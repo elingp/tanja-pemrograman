@@ -53,6 +53,4 @@ class Pertanyaan extends Model
     {
         return $this->hasMany('App\Models\LikeDisPertanyaan');
     }
-
 }
-

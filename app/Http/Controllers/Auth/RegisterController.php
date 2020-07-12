@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\Profile;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -74,6 +74,7 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'profile_img' => \Avatar::create($user->email)->toGravatar(['d' => 'identicon', 'r' => 'pg', 's' => 328]),
         ]);
+
         return $user;
     }
 }

@@ -26,6 +26,7 @@ class PertanyaanController extends Controller
     public function index()
     {
         $pertanyaan = Pertanyaan::latest()->paginate(15);
+
         return view('pertanyaan.index', ['questions' => $pertanyaan]);
     }
 
@@ -61,7 +62,8 @@ class PertanyaanController extends Controller
             'penanya_id' => $request->penanya_id,
             'tag' => $request->tag,
         ]);
-        toast('Pertanyaan berhasil dikirim!','success');
+        toast('Pertanyaan berhasil dikirim!', 'success');
+
         return redirect('/pertanyaan');
     }
 
@@ -75,6 +77,7 @@ class PertanyaanController extends Controller
     {
         $pertanyaan = Pertanyaan::with(['comments', 'jawaban'])->where('id', $id)->first();
         $pertanyaan->increment('view');
+
         return view('pertanyaan.detail', ['question' => $pertanyaan]);
     }
 
@@ -87,6 +90,7 @@ class PertanyaanController extends Controller
     public function showRedirect(int $id)
     {
         $slug = Pertanyaan::find($id)->slug;
+
         return redirect("\pertanyaan\\{$id}\\{$slug}");
     }
 
@@ -99,6 +103,7 @@ class PertanyaanController extends Controller
     public function edit(int $id)
     {
         $pertanyaan = Pertanyaan::find($id);
+
         return view('pertanyaan.edit', ['pertanyaan' => $pertanyaan]);
     }
 
