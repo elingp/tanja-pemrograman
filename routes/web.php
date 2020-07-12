@@ -26,6 +26,7 @@ Route::put('/pertanyaan/{id}', 'PertanyaanController@update');
 Route::delete('/pertanyaan/{id}', 'PertanyaanController@destroy');
 
 Route::post('/jawaban', 'JawabanController@store');
+Route::post('/jawaban/{id}', 'JawabanController@makeSelected');
 
 Route::post('/komen-pertanyaan', 'KomenController@storeTanya');
 Route::post('/komen-jawaban', 'KomenController@storeJawab');

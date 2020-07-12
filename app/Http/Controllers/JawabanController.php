@@ -93,4 +93,12 @@ class JawabanController extends Controller
         Jawaban::destroy($id);
         toast('Pertanyaan berhasil dihapus!', 'success');
     }
+
+    public function makeSelected(Request $request)
+    {
+        $jawaban = Jawaban::find($request->pertanyaan_id)->update(['is_selected' => 1]);
+        $jawaban->user->profile->increment('reputation', 10);
+        toast('Jawaban berhasil dipilih!', 'success');
+        return back();
+    }
 }
