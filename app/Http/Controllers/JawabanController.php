@@ -16,7 +16,7 @@ class JawabanController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +35,7 @@ class JawabanController extends Controller
             'penjawab_id' => $request->penjawab_id,
             'pertanyaan_id' => $request->pertanyaan_id,
         ]);
-        toast('Jawaban berhasil dikirim!','success');
+        toast('Jawaban berhasil dikirim!', 'success');
         return back();
     }
 }
