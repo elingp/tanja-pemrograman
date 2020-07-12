@@ -49,7 +49,7 @@
 
       <!-- Menu Footer-->
       <li class="user-footer">
-        <a href="#" class="btn btn-default btn-flat">Profile</a>
+        <a href="/profil" class="btn btn-default btn-flat">Profile</a>
         <a  href="{{ route('logout') }}" onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();" class="btn btn-default btn-flat float-right"> {{ __('Logout') }}</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
