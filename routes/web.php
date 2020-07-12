@@ -30,6 +30,8 @@ Route::post('/jawaban', 'JawabanController@store');
 Route::post('/komen-pertanyaan', 'KomenController@storeTanya');
 Route::post('/komen-jawaban', 'KomenController@storeJawab');
 
-Route::get('is_logged', 'LikeDisController@isLogged');
+Route::get('/is_logged', 'LikeDisController@isLogged');
+Route::post('/vote-pertanyaan', 'LikeDisController@storeTanya');
+Route::post('/vote-jawaban', 'LikeDisController@storeJawab');
 
 Auth::routes();

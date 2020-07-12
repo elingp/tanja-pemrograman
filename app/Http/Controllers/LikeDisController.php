@@ -26,18 +26,17 @@ class LikeDisController extends Controller
     public function storeTanya(Request $request)
     {
         $request->validate([
-            'user_id' => ['required', 'integer'],
             'pertanyaan_id' => ['required', 'integer'],
             'value' => ['required', 'integer'],
         ]);
         // Check to see if there is an existing vote
-        $vote = LikeDisPertanyaan::where('pertanyaan_id', $request->pertanyaan_id)->where('user_id', $request->user_id)->first();
+        $vote = LikeDisPertanyaan::where('pertanyaan_id', $request->pertanyaan_id)->where('user_id', $request->user()->id)->first();
         if (!$vote)
         {
             // First time the user is voting
            LikeDisPertanyaan::create([
                'pertanyaan_id' => $request->pertanyaan_id,
-               'user_id' => $request->user_id,
+               'user_id' => $request->user()->id,
                'value' => $request->value,
             ]);
         } else {
