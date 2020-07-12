@@ -28,7 +28,7 @@
                <span class="badge bg-primar link-black text-sm"><small><i class="far fa-comment"></i> {{ $question->created_at->diffForHumans() }}</small></span>
                <span class="badge bg-primar link-black text-sm"><small><i class="far fa-comments"></i> {{ $question->comments->count() }} answers</small></span>
                <span class="badge bg-primar link-black text-sm"><small><i class="far fa-eye"></i> {{ $question->view }} views</small></span>
-      
+
                 </span>
                 </div>
                 <!-- /.user-block -->
@@ -43,12 +43,12 @@
                         @foreach (explode(' ',$question->tag) as $item)
                         <span class="badge badge-primary">{{$item}}</span>
                         @endforeach
-                        @endif          
+                        @endif
 
- <div class="btn-group float-right"> 
+ <div class="btn-group float-right">
                         <button type="button" class="btn btn-outline-primary btn-sm"><i class="far fa-thumbs-up mr-1"></i></button>
                         <button type="button" class="btn btn-outline-primary btn-sm"><i class="far fa-thumbs-down mr-1"></i></button>
-                       </div> 
+                       </div>
 
 
 @if (!empty($question->comments))
@@ -75,7 +75,7 @@
                         @endforeach
 
                     @endif
-                     
+
 </div>
  <div class="card-footer">
 <a href="#"  data-toggle="modal" data-target="#myModal" class="link-black text-sm mr-2 mt-2"><i class="fas fa-share mr-1"></i> Komentar</a>
@@ -89,7 +89,7 @@
      <div class="card-header"><h5 class="header-title">Jawaban ( <span class="color">{{ $question->jawaban->count() }}</span> )</h5></div>
      <div class="card-body">
   @if ($question->jawaban->count() > 0)
-                    
+
                         @foreach ($question->jawaban as $answer)
                        <div class="post">
                       <div class="user-block">
@@ -126,7 +126,7 @@
                 </div>
                     </div>
                         @endforeach
-                   
+
                 @else
                     <p>Belum ada jawaban! Jadilah yang pertama menjawab pertanyaan ini.</p>
                 @endif
@@ -140,7 +140,7 @@
      <div class="card-body">
 
 @auth
-               
+
                 <form action="/jawaban" method="POST">
                     @csrf
                     <input type="hidden" name="penjawab_id" value="{{ Auth::id() }}">
@@ -161,7 +161,7 @@
                   <h5><i class="icon fas fa-lock"></i> Alert!</h5>
                   Anda harus Login untuk menjawab!
                 </div>
-                    
+
                 </a>
                 @endguest
      </div>
