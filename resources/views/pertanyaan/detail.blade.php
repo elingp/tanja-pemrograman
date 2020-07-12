@@ -40,12 +40,12 @@
                         @foreach (explode(' ',$question->tag) as $item)
                         <span class="badge badge-primary">{{$item}}</span>
                         @endforeach
-                        @endif          
+                        @endif
 
- <div class="btn-group float-right"> 
+ <div class="btn-group float-right">
                         <button type="button" class="btn btn-outline-primary btn-sm"><i class="far fa-thumbs-up mr-1"></i></button>
                         <button type="button" class="btn btn-outline-primary btn-sm"><i class="far fa-thumbs-down mr-1"></i></button>
-                       </div> 
+                       </div>
 
 
 @if (!empty($question->comments))
@@ -63,7 +63,7 @@
     </div>
 @endforeach
 @endif
-                     
+
 </div>
 
 @auth
@@ -73,11 +73,14 @@
 <input type="hidden" name="pertanyaan_id" value="{{ $question->id }}">
  <div class="card-footer">
         <div class="input-group input-group-sm">
-                  <input type="text" name="isi" class="form-control" placeholder="Type a comment">
+                  <input type="text" name="isi_komenpertanyaan" class="form-control @error('isi_komenpertanyaan') is-invalid @enderror" placeholder="Type a comment">
                   <span class="input-group-append">
                     <button type="submit" class="btn btn-info btn-flat">komentar</button>
                   </span>
                 </div>
+                @error('isi_komenpertanyaan')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 </div>
     </form>
 @endauth
@@ -90,7 +93,7 @@
      <div class="card-header"><h5 class="header-title">Jawaban ( <span class="color">{{ $question->jawaban->count() }}</span> )</h5></div>
      <div class="card-body">
   @if ($question->jawaban->count() > 0)
-                    
+
                         @foreach ($question->jawaban as $answer)
                        <div class="post">
                       <div class="user-block">
@@ -124,19 +127,22 @@
 @auth
     <form action="/komen-jawaban" method="POST">
 @csrf
-<input type="hidden" name="penjawab_id" value="{{ Auth::id() }}">
+<input type="hidden" name="pengomentar_id" value="{{ Auth::id() }}">
 <input type="hidden" name="jawaban_id" value="{{ $answer->id }}">
                 <div class="input-group input-group-sm">
-                  <input type="text" name="isi" class="form-control" placeholder="Type a comment">
+                  <input type="text" name="isi_komenjawaban" class="form-control @error('isi_komenjawaban') is-invalid @enderror" placeholder="Type a comment">
                   <span class="input-group-append">
                     <button type="submit" class="btn btn-info btn-flat">komentar</button>
                   </span>
                 </div>
+                @error('isi_komenjawaban')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
     </form>
                 @endauth
                     </div>
                         @endforeach
-                   
+
                 @else
                     <p>Belum ada jawaban! Jadilah yang pertama menjawab pertanyaan ini.</p>
                 @endif
@@ -150,7 +156,7 @@
      <div class="card-body">
 
 @auth
-               
+
                 <form action="/jawaban" method="POST">
                     @csrf
                     <input type="hidden" name="penjawab_id" value="{{ Auth::id() }}">
@@ -171,7 +177,7 @@
                   <h5><i class="icon fas fa-lock"></i> Alert!</h5>
                   Anda harus Login untuk menjawab!
                 </div>
-                    
+
                 </a>
                 @endguest
      </div>

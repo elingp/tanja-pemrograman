@@ -29,10 +29,10 @@ class KomenController extends Controller
         $request->validate([
             'pertanyaan_id' => ['required', 'integer'],
             'pengomentar_id' => ['required', 'integer'],
-            'isi' => ['required', 'min:30', 'max:65535'],
+            'isi_komenpertanyaan' => ['required', 'min:30', 'max:65535'],
         ]);
         KomenPertanyaan::create([
-            'isi' => $request->isi,
+            'isi' => $request->isi_komenpertanyaan,
             'pengomentar_id' => $request->pengomentar_id,
             'pertanyaan_id' => $request->pertanyaan_id,
         ]);
@@ -50,10 +50,10 @@ class KomenController extends Controller
         $request->validate([
             'jawaban_id' => ['required', 'integer'],
             'pengomentar_id' => ['required', 'integer'],
-            'isi' => ['required', 'min:30', 'max:65535'],
+            'isi_komenjawaban' => ['required', 'min:30', 'max:65535'],
         ]);
         KomenJawaban::create([
-            'isi' => $request->isi,
+            'isi' => $request->isi_komenjawaban,
             'pengomentar_id' => $request->pengomentar_id,
             'jawaban_id' => $request->jawaban_id,
         ]);
