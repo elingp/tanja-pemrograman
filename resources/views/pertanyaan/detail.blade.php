@@ -78,7 +78,12 @@
                      
 </div>
  <div class="card-footer">
-<a href="#"  data-toggle="modal" data-target="#myModal" class="link-black text-sm mr-2 mt-2"><i class="fas fa-share mr-1"></i> Komentar</a>
+        <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" placeholder="Type a comment">
+                  <span class="input-group-append">
+                    <button type="button" class="btn btn-info btn-flat">komentar</button>
+                  </span>
+                </div>
 </div>
      </div>
 </section>
@@ -169,8 +174,6 @@
 </section>
 
 @endsection
-
- @include('includes.modal')
 
 @push('scripts')
 <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
