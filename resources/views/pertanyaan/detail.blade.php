@@ -123,8 +123,21 @@
                           </a>
                         </span>
                       </p>
-
-@auth
+ @if (!empty($answer->comments))                         
+ @foreach ($answer->comments as $komenjawab)
+<div class="direct-chat-msg ml-5">
+                        <div class="direct-chat-infos clearfix">
+                          <span class="direct-chat-name float-left"> {{$komenjawab->user->name}}</span>
+                          <span class="direct-chat-timestamp float-right">{{ $komenjawab->created_at->diffForHumans() }}</span>
+                        </div>
+                        <img class="direct-chat-img" src="{{ asset('img/avatar_m.png')}}" alt="message user image">
+                        <div class="direct-chat-text">
+                          {!! $komenjawab->isi !!}
+                        </div>
+                      </div>
+ @endforeach
+ @endif
+ @auth
     <form action="/komen-jawaban" method="POST">
 @csrf
 <input type="hidden" name="pengomentar_id" value="{{ Auth::id() }}">

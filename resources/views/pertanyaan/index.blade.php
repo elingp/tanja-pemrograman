@@ -17,7 +17,7 @@
     </section>
 
  <section class="content">
-   <div class="row">
+<div class="row">
 <div class="col-md-9">
   @if (count($questions) > 0)
   @foreach ($questions as $question)
