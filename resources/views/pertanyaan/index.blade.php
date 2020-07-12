@@ -24,7 +24,7 @@
 <div class="card card-widget">
               <div class="card-header">
                 <div class="user-block">
-                  <img class="img-circle" src="{{ asset('img/avatar_m.png')}}" alt="User Image">
+                  <img class="img-circle" src="{{ $question->user->profile->profile_img }}" alt="User Image">
                   <span class="username"><a href="#" class="text-muted">{{ $question->user->name }}</a></span>
                   <span class="description text-bold"><h5> <a href="/pertanyaan/{{ $question->id }}/{{ $question->slug }}">{{ $question->judul }}</a></h5></span>
                 </div>

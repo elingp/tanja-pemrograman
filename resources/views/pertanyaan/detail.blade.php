@@ -20,7 +20,7 @@
      <div class="card card-widget">
      <div class="card-header">
                 <div class="user-block">
-                  <img class="img-circle" src="{{ asset('img/avatar_m.png')}}" alt="User Image">
+                  <img class="img-circle" src="{{ $question->user->profile->profile_img }}" alt="User Image">
                   <span class="username"><a href="#" class="text-muted">{{ $question->user->name }}</a></span>
                   <span class="description text-bold"><h3> <a href="/pertanyaan/{{ $question->id }}/{{ $question->slug }}">{{ $question->judul }}</a></h3></span>
                  
@@ -75,7 +75,7 @@
             <span class="direct-chat-name float-left"> {{$komentanya->user->name}}</span>
             <span class="direct-chat-timestamp float-right">{{ $komentanya->created_at->diffForHumans() }}</span>
         </div>
-    <img class="direct-chat-img" src="{{ asset('img/avatar_m.png')}}" alt="Message User Image">
+    <img class="direct-chat-img" src="{{ $komentanya->user->profile->profile_img }}" alt="Message User Image">
     <div class="direct-chat-text">
         {!! $komentanya->isi !!}
     </div>
@@ -116,7 +116,7 @@
                         @foreach ($question->jawaban as $answer)
                        <div class="post">
                       <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="{{ asset('img/avatar_m.png')}}" alt="user image">
+                        <img class="img-circle img-bordered-sm" src="{{ $answer->user->profile->profile_img }}" alt="user image">
                         <span class="username">
                           <a href="#">{{ $answer->user->name }}</a>
                           @auth
@@ -143,14 +143,14 @@
                           </a>
                         </span>
                       </p>
- @if (!empty($answer->comments))                         
+ @if (!empty($answer->comments))
  @foreach ($answer->comments as $komenjawab)
 <div class="direct-chat-msg ml-5">
                         <div class="direct-chat-infos clearfix">
                           <span class="direct-chat-name float-left"> {{$komenjawab->user->name}}</span>
                           <span class="direct-chat-timestamp float-right">{{ $komenjawab->created_at->diffForHumans() }}</span>
                         </div>
-                        <img class="direct-chat-img" src="{{ asset('img/avatar_m.png')}}" alt="message user image">
+                        <img class="direct-chat-img" src="{{ $komenjawab->user->profile->profile_img }}" alt="message user image">
                         <div class="direct-chat-text">
                           {!! $komenjawab->isi !!}
                         </div>
