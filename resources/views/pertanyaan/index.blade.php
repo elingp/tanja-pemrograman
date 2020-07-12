@@ -17,7 +17,9 @@
     </section>
 
  <section class="content">
-       @if (count($questions) > 0)
+   <div class="row">
+<div class="col-md-9">
+  @if (count($questions) > 0)
   @foreach ($questions as $question)
 <div class="card card-widget">
               <div class="card-header">
@@ -28,7 +30,7 @@
                 </div>
                 <!-- /.user-block -->
                 <div class="card-tools">
-                 <span data-toggle="tooltip" title={{ $question->created_at->diffForHumans() }}" class="badge bg-info">{{ $question->created_at->diffForHumans() }}</span>
+                 <span data-toggle="tooltip" title={{ $question->created_at->diffForHumans() }}" class="badge bg-info"><i class="fas fa-clock"></i> {{ $question->created_at->diffForHumans() }}</span>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                   </button>
                 </div>
@@ -50,7 +52,7 @@
                 </span>
                <span class="float-right badge bg-primar link-black text-sm"><i class="far fa-thumbs-up"></i> Like ({{ $question->likedislikes->sum('value') }})</span>
                <span class="float-right badge bg-primar link-black text-sm"><i class="far fa-comment"></i> {{ $question->created_at->diffForHumans() }}</span>
-               <span class="float-right badge bg-primar link-black text-sm"><i class="far fa-comments"></i> {{ $question->comments->count() }} answers</span>
+               <span class="float-right badge bg-primar link-black text-sm"><i class="far fa-comments"></i> {{ $question->jawaban->count() }} answers</span>
                <span class="float-right badge bg-primar link-black text-sm"> <i class="far fa-eye"></i> {{ $question->view }} views</span>
               </div>
               <!-- /.card-footer -->
@@ -61,6 +63,20 @@
   @else
                 <p>Belum ada pertanyaan!</p>
             @endif
+</div>
+<div class="col-md-3">
+  <div class="info-box mb-3 bg-warning">
+              <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Inventory</span>
+                <span class="info-box-number">5,200</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+</div>
+   </div>
+
 
  </section>
 @endsection
