@@ -27,4 +27,7 @@ Route::delete('/pertanyaan/{id}', 'PertanyaanController@destroy');
 
 Route::post('/jawaban', 'JawabanController@store');
 
+Route::post('/komen-pertanyaan', 'KomenController@storeTanya');
+Route::post('/komen-jawaban', 'KomenController@storeJawab');
+
 Auth::routes();
