@@ -1,16 +1,23 @@
-@extends('template.index')
+@extends('template.master')
 
 @section('content')
-<div class="content-wrapper ">
-    <div class="row justify-content-center">
-        <div class="col-md-11">
-            <div class="mb-4 border-bottom border-gray pb-2">
-                <h3>Kirim Pertanyaan</h3>
-            </div>
-
-            <article class="question question-type-normal">
-                <form action="/pertanyaan" method="POST">
+<section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Kirim Pertanyaan</h1>
+          </div>
+          <div class="col-sm-6">
+          </div>
+        </div>
+      </div>
+    </section>
+ <section class="content">
+      <form action="/pertanyaan" method="POST">
                     @csrf
+     <div class="card card-widget">
+ <div class="card-body">
+     
                     <input type="hidden" name="penanya_id" value="{{ Auth::id() }}">
                     <div class="form-group">
                         <label for="judul" class="mb-0">Judul</label>
@@ -36,12 +43,20 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Tanyakan</button>
-                </form>
-            </article>
-        </div>
-    </div>
+                  
+              
 </div>
+ <div class="card-footer">
+                 <button type="submit" class="btn btn-primary">Tanyakan</button>
+              </div>
+              </div>
+                </form>
+</section>
+
+
+
+
+
 @endsection
 
 
